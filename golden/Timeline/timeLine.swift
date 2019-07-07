@@ -44,7 +44,14 @@ class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewData
     
     }
     
+    @IBAction func camera(_ sender: Any) {
+        
+    }
     
+    @IBAction func album(_ sender: Any) {
+    
+    
+    }
     
     
 
