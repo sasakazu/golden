@@ -15,6 +15,12 @@
 		73C82C1122D1DEA10096AA8A /* goldenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C82C1022D1DEA10096AA8A /* goldenTests.swift */; };
 		73C82C1C22D1DEA10096AA8A /* goldenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C82C1B22D1DEA10096AA8A /* goldenUITests.swift */; };
 		73C82C2A22D1E2220096AA8A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73C82C2922D1E2220096AA8A /* GoogleService-Info.plist */; };
+		73C82C2D22D1E4470096AA8A /* login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C82C2C22D1E4470096AA8A /* login.swift */; };
+		73C82C2F22D1E45D0096AA8A /* signUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C82C2E22D1E45D0096AA8A /* signUp.swift */; };
+		73C82C3422D1E5B20096AA8A /* timeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C82C3322D1E5B20096AA8A /* timeLine.swift */; };
+		73C82C3622D1E5E20096AA8A /* searchMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C82C3522D1E5E20096AA8A /* searchMain.swift */; };
+		73C82C3822D1E6080096AA8A /* acountMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C82C3722D1E6080096AA8A /* acountMain.swift */; };
+		73C82C3A22D1E7DF0096AA8A /* customCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C82C3922D1E7DF0096AA8A /* customCell.swift */; };
 		98D75E648CAE525F9A47AF1B /* Pods_goldenUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 543B4A01D222D4899430236F /* Pods_goldenUITests.framework */; };
 		BD5219712E2D2817FA0CB449 /* Pods_golden.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A35779D773CAC9C37885A5D /* Pods_golden.framework */; };
 		DDE91891CD9D49CD8A986A02 /* Pods_goldenTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B489015A7E2FA898A47937DD /* Pods_goldenTests.framework */; };
@@ -56,6 +62,12 @@
 		73C82C1B22D1DEA10096AA8A /* goldenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goldenUITests.swift; sourceTree = "<group>"; };
 		73C82C1D22D1DEA20096AA8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73C82C2922D1E2220096AA8A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		73C82C2C22D1E4470096AA8A /* login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = login.swift; sourceTree = "<group>"; };
+		73C82C2E22D1E45D0096AA8A /* signUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUp.swift; sourceTree = "<group>"; };
+		73C82C3322D1E5B20096AA8A /* timeLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timeLine.swift; sourceTree = "<group>"; };
+		73C82C3522D1E5E20096AA8A /* searchMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchMain.swift; sourceTree = "<group>"; };
+		73C82C3722D1E6080096AA8A /* acountMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = acountMain.swift; sourceTree = "<group>"; };
+		73C82C3922D1E7DF0096AA8A /* customCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customCell.swift; sourceTree = "<group>"; };
 		84C839C178AC9398D1E2D5FD /* Pods-goldenTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-goldenTests.debug.xcconfig"; path = "Target Support Files/Pods-goldenTests/Pods-goldenTests.debug.xcconfig"; sourceTree = "<group>"; };
 		856ED77EFC1C9C50EB46194A /* Pods-goldenUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-goldenUITests.debug.xcconfig"; path = "Target Support Files/Pods-goldenUITests/Pods-goldenUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B489015A7E2FA898A47937DD /* Pods_goldenTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_goldenTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +141,10 @@
 		73C82BFA22D1DE9A0096AA8A /* golden */ = {
 			isa = PBXGroup;
 			children = (
+				73C82C2B22D1E34E0096AA8A /* Login */,
+				73C82C3022D1E4F20096AA8A /* Timeline */,
+				73C82C3122D1E4FB0096AA8A /* Search */,
+				73C82C3222D1E5060096AA8A /* Acount */,
 				73C82BFB22D1DE9A0096AA8A /* AppDelegate.swift */,
 				73C82BFD22D1DE9A0096AA8A /* ViewController.swift */,
 				73C82BFF22D1DE9A0096AA8A /* Main.storyboard */,
@@ -156,6 +172,40 @@
 				73C82C1D22D1DEA20096AA8A /* Info.plist */,
 			);
 			path = goldenUITests;
+			sourceTree = "<group>";
+		};
+		73C82C2B22D1E34E0096AA8A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				73C82C2C22D1E4470096AA8A /* login.swift */,
+				73C82C2E22D1E45D0096AA8A /* signUp.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		73C82C3022D1E4F20096AA8A /* Timeline */ = {
+			isa = PBXGroup;
+			children = (
+				73C82C3322D1E5B20096AA8A /* timeLine.swift */,
+				73C82C3922D1E7DF0096AA8A /* customCell.swift */,
+			);
+			path = Timeline;
+			sourceTree = "<group>";
+		};
+		73C82C3122D1E4FB0096AA8A /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				73C82C3522D1E5E20096AA8A /* searchMain.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		73C82C3222D1E5060096AA8A /* Acount */ = {
+			isa = PBXGroup;
+			children = (
+				73C82C3722D1E6080096AA8A /* acountMain.swift */,
+			);
+			path = Acount;
 			sourceTree = "<group>";
 		};
 		A584568005170594D70BC324 /* Frameworks */ = {
@@ -397,7 +447,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73C82C3622D1E5E20096AA8A /* searchMain.swift in Sources */,
+				73C82C3422D1E5B20096AA8A /* timeLine.swift in Sources */,
+				73C82C3822D1E6080096AA8A /* acountMain.swift in Sources */,
 				73C82BFE22D1DE9A0096AA8A /* ViewController.swift in Sources */,
+				73C82C2F22D1E45D0096AA8A /* signUp.swift in Sources */,
+				73C82C2D22D1E4470096AA8A /* login.swift in Sources */,
+				73C82C3A22D1E7DF0096AA8A /* customCell.swift in Sources */,
 				73C82BFC22D1DE9A0096AA8A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
