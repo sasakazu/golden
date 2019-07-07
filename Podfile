@@ -9,6 +9,9 @@ target 'golden' do
   
   pod 'Firebase'
   pod 'Firebase/Core'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Auth'
   
 
   target 'goldenTests' do
