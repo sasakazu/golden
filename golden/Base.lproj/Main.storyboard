@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ywT-4m-9ft">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qb5-Hi-XfU">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -117,7 +117,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="ゴールデン" id="nYp-cz-sEj">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="AAq-Ad-9vu">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="picture" id="oeH-PL-2Ms">
+                            <connections>
+                                <segue destination="KLt-Ws-0fx" kind="showDetail" id="Wjn-7A-FQk"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="AAq-Ad-9vu">
                             <connections>
                                 <segue destination="KLt-Ws-0fx" kind="showDetail" id="xOo-Dd-azK"/>
                             </connections>
@@ -128,10 +133,10 @@
             </objects>
             <point key="canvasLocation" x="1657.9710144927537" y="-693.08035714285711"/>
         </scene>
-        <!--View Controller-->
+        <!--Share Photo-->
         <scene sceneID="6t3-nD-45K">
             <objects>
-                <viewController id="KLt-Ws-0fx" sceneMemberID="viewController">
+                <viewController id="KLt-Ws-0fx" customClass="sharePhoto" customModule="golden" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NX9-iv-ekn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -147,8 +152,32 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rr1-hg-uFk">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="ゴールデン" id="O67-6d-QX7">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="NT0-3H-4Qk"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Item" image="paper-plane" id="oVd-DJ-2KJ"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jV6-B9-EbS">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="NQz-rc-ny9"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jV6-B9-EbS" firstAttribute="leading" secondItem="NX9-iv-ekn" secondAttribute="leading" id="2Fr-Dn-9ss"/>
+                            <constraint firstItem="Rr1-hg-uFk" firstAttribute="leading" secondItem="g0J-Cp-cfs" secondAttribute="leading" id="GFO-55-iY0"/>
+                            <constraint firstItem="Rr1-hg-uFk" firstAttribute="top" secondItem="jV6-B9-EbS" secondAttribute="bottom" id="GcC-NM-7PV"/>
+                            <constraint firstAttribute="trailing" secondItem="jV6-B9-EbS" secondAttribute="trailing" id="NEU-He-c12"/>
+                            <constraint firstItem="jV6-B9-EbS" firstAttribute="top" secondItem="NX9-iv-ekn" secondAttribute="top" id="aEZ-EW-I1J"/>
+                            <constraint firstItem="Rr1-hg-uFk" firstAttribute="trailing" secondItem="g0J-Cp-cfs" secondAttribute="trailing" id="eMd-5j-0pb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="g0J-Cp-cfs"/>
                     </view>
                 </viewController>
@@ -370,4 +399,11 @@
             <point key="canvasLocation" x="747.82608695652175" y="892.63392857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="paper-plane" width="32" height="32"/>
+        <image name="picture" width="32" height="32"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Wjn-7A-FQk"/>
+    </inferredMetricsTieBreakers>
 </document>
