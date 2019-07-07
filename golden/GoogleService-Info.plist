@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>145299932333-81kf20rqra9bqi58ms4am5q7sbr7jj1h.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.145299932333-81kf20rqra9bqi58ms4am5q7sbr7jj1h</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDXZTsdeKBp4sctltQho6-FemBtDcit9MU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>145299932333</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>sasakura.company.golden</string>
+	<key>PROJECT_ID</key>
+	<string>golden-948d8</string>
+	<key>STORAGE_BUCKET</key>
+	<string>golden-948d8.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:145299932333:ios:fdfb11a1711f2287</string>
+	<key>DATABASE_URL</key>
+	<string>https://golden-948d8.firebaseio.com</string>
+</dict>
+</plist>
