@@ -22,6 +22,7 @@
 		73C82C3822D1E6080096AA8A /* acountMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C82C3722D1E6080096AA8A /* acountMain.swift */; };
 		73C82C3A22D1E7DF0096AA8A /* customCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C82C3922D1E7DF0096AA8A /* customCell.swift */; };
 		73C82C3C22D1F5BB0096AA8A /* sharePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C82C3B22D1F5BB0096AA8A /* sharePhoto.swift */; };
+		73C82C3E22D335E80096AA8A /* editProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C82C3D22D335E80096AA8A /* editProfile.swift */; };
 		98D75E648CAE525F9A47AF1B /* Pods_goldenUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 543B4A01D222D4899430236F /* Pods_goldenUITests.framework */; };
 		BD5219712E2D2817FA0CB449 /* Pods_golden.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A35779D773CAC9C37885A5D /* Pods_golden.framework */; };
 		DDE91891CD9D49CD8A986A02 /* Pods_goldenTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B489015A7E2FA898A47937DD /* Pods_goldenTests.framework */; };
@@ -70,6 +71,7 @@
 		73C82C3722D1E6080096AA8A /* acountMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = acountMain.swift; sourceTree = "<group>"; };
 		73C82C3922D1E7DF0096AA8A /* customCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customCell.swift; sourceTree = "<group>"; };
 		73C82C3B22D1F5BB0096AA8A /* sharePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sharePhoto.swift; sourceTree = "<group>"; };
+		73C82C3D22D335E80096AA8A /* editProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editProfile.swift; sourceTree = "<group>"; };
 		84C839C178AC9398D1E2D5FD /* Pods-goldenTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-goldenTests.debug.xcconfig"; path = "Target Support Files/Pods-goldenTests/Pods-goldenTests.debug.xcconfig"; sourceTree = "<group>"; };
 		856ED77EFC1C9C50EB46194A /* Pods-goldenUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-goldenUITests.debug.xcconfig"; path = "Target Support Files/Pods-goldenUITests/Pods-goldenUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B489015A7E2FA898A47937DD /* Pods_goldenTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_goldenTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -207,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				73C82C3722D1E6080096AA8A /* acountMain.swift */,
+				73C82C3D22D335E80096AA8A /* editProfile.swift */,
 			);
 			path = Acount;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 				73C82C3622D1E5E20096AA8A /* searchMain.swift in Sources */,
 				73C82C3422D1E5B20096AA8A /* timeLine.swift in Sources */,
 				73C82C3C22D1F5BB0096AA8A /* sharePhoto.swift in Sources */,
+				73C82C3E22D335E80096AA8A /* editProfile.swift in Sources */,
 				73C82C3822D1E6080096AA8A /* acountMain.swift in Sources */,
 				73C82BFE22D1DE9A0096AA8A /* ViewController.swift in Sources */,
 				73C82C2F22D1E45D0096AA8A /* signUp.swift in Sources */,

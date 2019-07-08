@@ -244,20 +244,91 @@
             </objects>
             <point key="canvasLocation" x="1657.9710144927537" y="892.63392857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--Edit Profile-->
         <scene sceneID="grj-DE-yNm">
             <objects>
-                <viewController id="52n-hi-haK" sceneMemberID="viewController">
+                <viewController id="52n-hi-haK" customClass="editProfile" customModule="golden" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yNW-tS-ibv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noimage" translatesAutoresizingMaskIntoConstraints="NO" id="aD6-EW-kOk">
+                                <rect key="frame" x="150" y="121" width="104" height="99"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="104" id="Aaj-M1-5zt"/>
+                                    <constraint firstAttribute="height" constant="99" id="d2V-nO-TKA"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JZV-8r-rUF">
+                                <rect key="frame" x="20" y="325" width="374" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhF-5C-Qp8">
+                                <rect key="frame" x="146" y="247" width="122" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.192208292" green="0.4613459506" blue="1" alpha="0.92816245720000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="ファイル選択">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="choiceFile:" destination="52n-hi-haK" eventType="touchUpInside" id="9fY-pj-ZxV"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="dogname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hyC-Wq-ZfQ">
+                                <rect key="frame" x="20" y="385" width="374" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCN-Ub-WbJ">
+                                <rect key="frame" x="45" y="669" width="325" height="41"/>
+                                <color key="backgroundColor" red="1" green="0.45610180919999999" blue="0.14958219850000001" alpha="0.84353595889999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="FP0-0J-LDK"/>
+                                    <constraint firstAttribute="width" constant="325" id="gEN-hK-NPO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="UPDATE">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="update:" destination="52n-hi-haK" eventType="touchUpInside" id="4NM-zW-1IB"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="aD6-EW-kOk" firstAttribute="top" secondItem="Mdk-Uy-XNl" secondAttribute="top" constant="33" id="3Bi-J1-fBw"/>
+                            <constraint firstItem="JCN-Ub-WbJ" firstAttribute="leading" secondItem="Mdk-Uy-XNl" secondAttribute="leading" constant="45" id="SwH-vO-nCo"/>
+                            <constraint firstItem="Mdk-Uy-XNl" firstAttribute="trailing" secondItem="aD6-EW-kOk" secondAttribute="trailing" constant="160" id="Zyy-64-Jw2"/>
+                            <constraint firstItem="Mdk-Uy-XNl" firstAttribute="bottom" secondItem="JCN-Ub-WbJ" secondAttribute="bottom" constant="103" id="bjK-hB-a8L"/>
+                            <constraint firstItem="aD6-EW-kOk" firstAttribute="leading" secondItem="Mdk-Uy-XNl" secondAttribute="leading" constant="150" id="ces-zX-her"/>
+                            <constraint firstItem="Mdk-Uy-XNl" firstAttribute="trailing" secondItem="JCN-Ub-WbJ" secondAttribute="trailing" constant="44" id="i75-GO-lFS"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Mdk-Uy-XNl"/>
                     </view>
+                    <navigationItem key="navigationItem" id="dcc-G2-Ukl">
+                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="g5O-BT-yZU">
+                            <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="logout:" destination="52n-hi-haK" id="5ne-0i-aMd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="editDogname" destination="hyC-Wq-ZfQ" id="tTQ-9D-vTk"/>
+                        <outlet property="editImage" destination="aD6-EW-kOk" id="tDb-g0-Az3"/>
+                        <outlet property="editUsername" destination="JZV-8r-rUF" id="Xqq-eu-KeB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vIv-QO-ath" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2446" y="893"/>
+            <point key="canvasLocation" x="2444.9275362318845" y="892.63392857142856"/>
         </scene>
         <!--Login-->
         <scene sceneID="hxU-t0-EMw">

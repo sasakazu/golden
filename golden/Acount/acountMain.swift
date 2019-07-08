@@ -20,9 +20,7 @@ class acountMain: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-//        var defaultStore: DocumentReference?
+
 
         let db = Firestore.firestore()
     
