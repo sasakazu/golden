@@ -18,7 +18,10 @@ class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewData
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let uid = Auth.auth().currentUser?.uid
+        
+        print(uid)
+        
     }
  
     

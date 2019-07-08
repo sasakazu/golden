@@ -234,6 +234,11 @@
                         <viewLayoutGuide key="safeArea" id="WGS-U1-fFi"/>
                     </view>
                     <navigationItem key="navigationItem" id="yMz-pT-jzD"/>
+                    <connections>
+                        <outlet property="dogname" destination="4SD-jC-Zh4" id="oSd-aM-c6f"/>
+                        <outlet property="imageview" destination="60z-Fh-HkD" id="S1p-6n-3JT"/>
+                        <outlet property="usernameLabel" destination="zbO-RD-LYA" id="fYA-R2-9RS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BpP-dv-UUz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -291,11 +296,18 @@
                                 <state key="normal" title="Log in">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="login:" destination="53d-72-3lb" eventType="touchUpInside" id="edd-MJ-7iN"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="pU4-T4-W4X"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTF" destination="PPr-Dr-rWf" id="Uy1-hp-xxu"/>
+                        <outlet property="passTF" destination="Kif-nk-OB2" id="rzB-A7-78U"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xUr-So-UA6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
