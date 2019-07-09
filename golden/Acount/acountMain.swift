@@ -41,6 +41,8 @@ class acountMain: UIViewController {
                 self.usernameLabel.text = username
                 self.dogname.text = dogname
                 
+               
+                
                 let url = NSURL(string: iconURL!)
                 self.imageview.sd_setImage(with: url as URL?)
                 

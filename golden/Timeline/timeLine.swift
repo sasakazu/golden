@@ -13,6 +13,7 @@ class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewData
  
     
     var timeLine = [Any]()
+   
     
     
     override func viewDidLoad() {
@@ -20,12 +21,12 @@ class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewData
 
         let uid = Auth.auth().currentUser?.uid
         
-        print(uid)
+        print(uid!)
         
     }
  
     
-    
+  
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -51,10 +52,10 @@ class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewData
         
     }
     
-    @IBAction func album(_ sender: Any) {
+
     
     
-    }
+    
     
     
 
