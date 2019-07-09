@@ -34,9 +34,10 @@ class editProfile: UIViewController {
             if let document = document {
                 
                 let username = document["userName"] as? String
+                let dogname = document["dogName"] as? String
                 
                 self.editUsername.text = username
-                
+                self.editDogname.text = dogname
                 
             }else{
                 print("Document does not exist")
@@ -55,6 +56,42 @@ class editProfile: UIViewController {
     
     
     @IBAction func update(_ sender: Any) {
+        
+        
+        if let currentUser = Auth.auth().currentUser {
+        
+        let dogname = editDogname.text
+        let username = editUsername.text
+        
+        
+        let db = Firestore.firestore()
+        
+        let editProfile = [
+           
+            "userName": username,
+            "dogName": dogname
+            
+        ]
+        
+        
+            db.collection("users").document((currentUser.uid)).updateData(editProfile as [String : Any]) { err in
+            
+            if let err = err {
+                print("Error writing document: \(err)")
+            }
+                
+            else {
+                print("Document successfully written!")
+            }
+            
+            
+        }
+        
+        }
+        
+        self.navigationController?.popViewController(animated: true)
+
+        
     }
     
 

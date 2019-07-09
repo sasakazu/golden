@@ -14,7 +14,6 @@ class acountMain: UIViewController {
 
     @IBOutlet weak var imageview: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
-    
     @IBOutlet weak var dogname: UILabel!
     
     
@@ -31,13 +30,14 @@ class acountMain: UIViewController {
 
         
         
-        ref.getDocument{ (document, error) in
-            if let document = document {
+        ref.addSnapshotListener{ (document, error) in
+            if let document = document, document.exists {
 
                 let username = document["userName"] as? String
-               
-                self.usernameLabel.text = username
+                let dogname = document["dogName"] as? String
                 
+                self.usernameLabel.text = username
+                self.dogname.text = dogname
                 
             }else{
                 print("Document does not exist")
