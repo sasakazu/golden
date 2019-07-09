@@ -20,6 +20,7 @@ class acountMain: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        imageview.layer.cornerRadius = 64
 
         let db = Firestore.firestore()
     
@@ -35,9 +36,14 @@ class acountMain: UIViewController {
 
                 let username = document["userName"] as? String
                 let dogname = document["dogName"] as? String
+                let iconURL = document["iconImage"] as? String
                 
                 self.usernameLabel.text = username
                 self.dogname.text = dogname
+                
+                let url = NSURL(string: iconURL!)
+                self.imageview.sd_setImage(with: url as URL?)
+                
                 
             }else{
                 print("Document does not exist")
