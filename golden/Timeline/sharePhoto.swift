@@ -9,11 +9,13 @@
 import UIKit
 import Firebase
 
-class sharePhoto: UIViewController {
+class sharePhoto: UIViewController, UIImagePickerControllerDelegate,
+UINavigationControllerDelegate {
     
-    var picture:UIImage? = nil
+  
     
     @IBOutlet weak var pictureImage: UIImageView!
+    @IBOutlet weak var hitokoto: UITextField!
     
 
     override func viewDidLoad() {
@@ -22,10 +24,156 @@ class sharePhoto: UIViewController {
         
        
     }
+
     
-    @IBAction func cancel(_ sender: Any) {
-        
-        dismiss(animated: true, completion: nil)
+    @IBAction func camera(_ sender: Any) {
+    
+        let sourceType:UIImagePickerController.SourceType =
+            UIImagePickerController.SourceType.camera
+        // カメラが利用可能かチェック
+        if UIImagePickerController.isSourceTypeAvailable(
+            UIImagePickerController.SourceType.camera){
+            // インスタンスの作成
+            let cameraPicker = UIImagePickerController()
+            cameraPicker.sourceType = sourceType
+            cameraPicker.delegate = self
+            self.present(cameraPicker, animated: true, completion: nil)
+            
+        }
+        else{
+            
+            
+        }
     }
     
+    
+    func imagePickerController(_ imagePicker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
+        
+        if let pickedImage = info[.originalImage]
+            as? UIImage {
+            
+            pictureImage.image = pickedImage
+            
+        }
+        
+        //閉じる処理
+        imagePicker.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    // 撮影がキャンセルされた時に呼ばれる
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    // 書き込み完了結果の受け取り
+    @objc func image(_ image: UIImage,
+                     didFinishSavingWithError error: NSError!,
+                     contextInfo: UnsafeMutableRawPointer) {
+        
+        if error != nil {
+            print(error.code)
+            
+        }
+        else{
+            
+        }
+    }
+    
+    
+    @IBAction func album(_ sender: Any) {
+        
+        let sourceType:UIImagePickerController.SourceType =
+            UIImagePickerController.SourceType.photoLibrary
+        
+        if UIImagePickerController.isSourceTypeAvailable(
+            UIImagePickerController.SourceType.photoLibrary){
+            // インスタンスの作成
+            let cameraPicker = UIImagePickerController()
+            cameraPicker.sourceType = sourceType
+            cameraPicker.delegate = self
+            self.present(cameraPicker, animated: true, completion: nil)
+            
+            
+        }
+        else{
+            
+            
+        }
+    
+    }
+    
+    
+    
+    
+    @IBAction func sharePost(_ sender: Any) {
+        
+        let userID = Auth.auth().currentUser?.uid
+        
+        var imageData = Data()
+        
+        let storage = Storage.storage()
+        
+        let storageRef = storage.reference(forURL: "gs://golden-948d8.appspot.com/")
+        
+        
+        let riversRef = storageRef.child("postsImage/" + (userID!) +  "__\(Int(Date.timeIntervalSinceReferenceDate * 1000)).jpg")
+        
+        let image = pictureImage.image
+        
+        imageData = (image?.jpegData(compressionQuality: 1.0))!
+        
+        
+        _ = riversRef.putData(imageData, metadata: nil) { (metadata, error) in
+            guard metadata != nil else {
+                
+                return
+            }
+            
+            
+            riversRef.downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                    // Uh-oh, an error occurred!
+                    return
+                }
+                
+        let postdata = downloadURL.absoluteString
+                
+        
+        let data = [
+            "comment": self.hitokoto.text as Any,
+            "userID": userID as Any,
+            "postImage": postdata
+            
+            ] as [String : Any]
+        
+        
+        let db = Firestore.firestore()
+        
+        db.collection("posts").addDocument(data: data as [String : Any]) { err in
+            
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                print("success!")
+            }
+        }
+        
+        self.navigationController?.popToRootViewController(animated: true)
+
+            }
+    
+        }
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+
 }

@@ -12,7 +12,7 @@ import Firebase
 class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
  
     
-    var timeLine = [Any]()
+    var post = [Post]()
    
     
     
@@ -21,7 +21,10 @@ class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewData
 
         let uid = Auth.auth().currentUser?.uid
         
-        print(uid!)
+        
+        
+        
+        
         
     }
  
@@ -31,7 +34,7 @@ class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         
-        return timeLine.count
+        return post.count
         
         
     }
@@ -48,13 +51,7 @@ class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewData
     
     }
     
-    @IBAction func camera(_ sender: Any) {
-        
-    }
-    
 
-    
-    
     
     
     

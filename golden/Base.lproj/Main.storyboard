@@ -156,6 +156,9 @@
                                 <state key="normal" title="Share">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="sharePost:" destination="KLt-Ws-0fx" eventType="touchUpInside" id="a2v-Ec-y9h"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -163,11 +166,20 @@
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="hBr-2Q-5bQ">
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="camera" id="YvF-u7-Bu3"/>
-                            <barButtonItem title="Item" image="picture" id="97A-CW-d3S"/>
+                            <barButtonItem systemItem="camera" id="YvF-u7-Bu3">
+                                <connections>
+                                    <action selector="camera:" destination="KLt-Ws-0fx" id="aLC-lm-fit"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="picture" id="97A-CW-d3S">
+                                <connections>
+                                    <action selector="album:" destination="KLt-Ws-0fx" id="oZe-Nz-S5A"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="hitokoto" destination="NSO-Eg-CCp" id="ONf-gF-2mi"/>
                         <outlet property="pictureImage" destination="7AP-IQ-ERw" id="OOJ-IY-eDK"/>
                     </connections>
                 </viewController>
