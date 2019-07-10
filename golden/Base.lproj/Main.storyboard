@@ -99,6 +99,13 @@
                                                 </button>
                                             </subviews>
                                         </view>
+                                        <connections>
+                                            <outlet property="comment" destination="i3B-Gj-I0H" id="U3k-78-ALO"/>
+                                            <outlet property="dogname" destination="kNg-26-63t" id="Qfd-dG-mBe"/>
+                                            <outlet property="postImage" destination="wMQ-tX-n8b" id="23M-kG-uBa"/>
+                                            <outlet property="userIcon" destination="DrP-Bv-f6w" id="yKk-LQ-2UE"/>
+                                            <outlet property="username" destination="AYc-fM-Hik" id="XGn-E9-7wy"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -119,11 +126,13 @@
                     <navigationItem key="navigationItem" title="ゴールデン" id="nYp-cz-sEj">
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="AAq-Ad-9vu">
                             <connections>
-                                <action selector="camera:" destination="BYZ-38-t0r" id="hs0-A5-nXU"/>
                                 <segue destination="KLt-Ws-0fx" kind="show" id="dm5-qh-qCB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionview" destination="wa6-GG-etf" id="qX3-6Y-unx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

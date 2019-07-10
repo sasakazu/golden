@@ -9,23 +9,16 @@
 import Foundation
 
 class Post {
-    
-    var username: String = ""
+
+
     var postImage:String = ""
-    var postId:String = ""
-    var getUid:String = ""
-    var userIcon:String = ""
-    var likeCount:Int = 0
-    
-    
-    init(username: String, postImage: String, getUid:String, userIcon: String, likeCount: Int) {
-        
-        self.username = username
+    var comment:String = ""
+
+    init(postImage: String, comment: String) {
+
         self.postImage = postImage
-        self.getUid = getUid
-        self.userIcon = userIcon
-        self.likeCount  = likeCount
-        
+        self.comment = comment
+
     }
-    
+
 }

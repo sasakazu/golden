@@ -10,4 +10,13 @@ import UIKit
 
 class customCell: UICollectionViewCell {
     
+    
+    @IBOutlet weak var userIcon: UIImageView!
+    @IBOutlet weak var username: UILabel!
+    @IBOutlet weak var dogname: UILabel!
+    @IBOutlet weak var postImage: UIImageView!
+    @IBOutlet weak var comment: UILabel!
+    
+    
+    
 }
