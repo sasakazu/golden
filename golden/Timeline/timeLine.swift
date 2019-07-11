@@ -23,7 +23,7 @@ class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewData
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        let uid = Auth.auth().currentUser?.uid
+        let uid = Auth.auth().currentUser?.uid
         
          let db = Firestore.firestore()
 

@@ -152,7 +152,7 @@ UINavigationControllerDelegate {
         
         let db = Firestore.firestore()
         
-        db.collection("posts").addDocument(data: data as [String : Any]) { err in
+                db.collection("users").document(userID!).collection("posts").addDocument(data: data as [String : Any]) { err in
             
             if let err = err {
                 print("Error adding document: \(err)")
@@ -160,7 +160,18 @@ UINavigationControllerDelegate {
                 print("success!")
             }
         }
-        
+    
+                let postdb = Firestore.firestore()
+                
+                postdb.collection("posts").addDocument(data: data as [String : Any]) { err in
+                    
+                    if let err = err {
+                        print("Error adding document: \(err)")
+                    } else {
+                        print("success!")
+                    }
+                }
+                
         self.navigationController?.popToRootViewController(animated: true)
 
             }
