@@ -161,7 +161,7 @@ UINavigationControllerDelegate {
             }
         }
     
-                let postdb = Firestore.firestore()
+        let postdb = Firestore.firestore()
                 
                 postdb.collection("posts").addDocument(data: data as [String : Any]) { err in
                     
