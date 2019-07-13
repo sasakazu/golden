@@ -44,7 +44,7 @@ UINavigationControllerDelegate {
                 self.editUsername.text = username
                 self.editDogname.text = dogname
                 
-                let url = NSURL(string: iconURL!)
+                let url = NSURL(string: iconURL ?? "")
                 self.editImage.sd_setImage(with: url as URL?)
                 
                 
@@ -78,7 +78,7 @@ UINavigationControllerDelegate {
         
         let image = editImage.image
         
-        imageData = (image?.jpegData(compressionQuality: 1.0))!
+        imageData = ((image?.jpegData(compressionQuality: 1.0))!)
         
         
         _ = riversRef.putData(imageData, metadata: nil) { (metadata, error) in
@@ -94,12 +94,6 @@ UINavigationControllerDelegate {
                     return
                 }
 
-        
-        
-        
-        
-        
-        
         
         if let currentUser = Auth.auth().currentUser {
         

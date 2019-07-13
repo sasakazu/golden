@@ -13,11 +13,13 @@ class Post {
 
     var postImage:String = ""
     var comment:String = ""
+    var uuid:String = ""
 
-    init(postImage: String, comment: String) {
+    init(postImage: String, comment: String, uuid: String) {
 
         self.postImage = postImage
         self.comment = comment
+        self.uuid = uuid
 
     }
 

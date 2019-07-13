@@ -1,8 +1,8 @@
 //
-//  acountMain.swift
+//  showProfile.swift
 //  golden
 //
-//  Created by 笹倉一也 on 2019/07/07.
+//  Created by 笹倉一也 on 2019/07/13.
 //  Copyright © 2019 笹倉一也. All rights reserved.
 //
 
@@ -10,55 +10,62 @@ import UIKit
 import Firebase
 import FirebaseUI
 
-class acountMain: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class showProfile: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+  
     
- 
     
-    var myPostArray = [Post]()
+    var reciveID:String = ""
+    
+    var showPost = [Post]()
 
-    @IBOutlet weak var imageview: UIImageView!
-    @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var dogname: UILabel!
+    @IBOutlet weak var showIcon: UIImageView!
+    @IBOutlet weak var showUsername: UILabel!
+    @IBOutlet weak var showDogname: UILabel!
+    @IBOutlet weak var followButton: UIButton!
     
     @IBOutlet weak var collectionview: UICollectionView!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        imageview.layer.cornerRadius = 64
-
+        
+        print(reciveID)
         let db = Firestore.firestore()
-    
         
-        let userID = Auth.auth().currentUser?.uid
+//        ここからUserprofile
         
-        let ref = db.collection("users").document(userID!)
-
-        let myPostRef = db.collection("users").document(userID!).collection("posts")
+        let ref = db.collection("users").document(reciveID)
+        
         
         ref.addSnapshotListener{ (document, error) in
             if let document = document, document.exists {
-
+                
                 let username = document["userName"] as? String
                 let dogname = document["dogName"] as? String
                 let iconURL = document["iconImage"] as? String
                 
-                self.usernameLabel.text = username
-                self.dogname.text = dogname
+                self.showUsername.text = username
+                self.showDogname.text = dogname
                 
-               
+                
                 
                 let url = NSURL(string: iconURL ?? "")
-                self.imageview.sd_setImage(with: url as URL?)
+                self.showIcon.sd_setImage(with: url as URL?)
                 
                 
             }else{
                 print("Document does not exist")
             }
 
-        
         }
         
+        
+        
+//        ここからPost
+            let myPostRef = db.collection("users").document(self.reciveID).collection("posts")
+        
+            
         
         myPostRef.addSnapshotListener{ (postdocument, error) in
             
@@ -89,52 +96,40 @@ class acountMain: UIViewController, UICollectionViewDataSource, UICollectionView
                     
                     
                     let newSourse = Post(postImage: postURL!, comment: comment!, uuid: sendID!)
-                    self.myPostArray.append(newSourse)
+                    self.showPost.append(newSourse)
                     
                     
                     self.collectionview.reloadData()
                     
-        
+                    
                 }
-            }}
-            
+            }
+        }
+        
 
-  
     }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return myPostArray.count
+        return showPost.count
         
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: "Cell",
-            for: indexPath as IndexPath) as! acountCustomCell
+            for: indexPath as IndexPath) as! showProfileCell
         
         
         
+        let postImageUrl = NSURL(string: (showPost[indexPath.row].postImage) as String)
         
-        
-        let postImageUrl = NSURL(string: (myPostArray[indexPath.row].postImage) as String)
-        
-        cell.myPostImage.sd_setImage(with: postImageUrl as URL?)
-        
-        
-        
-        
+        cell.showImage.sd_setImage(with: postImageUrl as URL?)
         
         return cell
     }
 
- 
 
-    
-    
-    
-    
 }

@@ -21,92 +21,55 @@ class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewData
     
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-
-//        let uid = Auth.auth().currentUser?.uid
-        
-         let db = Firestore.firestore()
-
-        let ref = db.collection("posts")
-
-
-        ref.addSnapshotListener{ (document, error) in
-            
-            
-            guard let value = document else {
-                print("snapShot is nil")
-                return
-            }
-            
-            
-            value.documentChanges.forEach{diff in
-              
-                if diff.type == .added {
-                    
-
-                    
-                    let chatDataOp = diff.document.data() as? Dictionary<String, String>
-                    
-                    print(diff.document.data())
-                    
-                    guard let chatData = chatDataOp else {
-                        return
-                    }
-                        
-                    let comment = chatData["comment"]
-                    let postURL = chatData["postImage"]
-                        
-                        
-                                        let newSourse = Post(postImage: postURL!, comment: comment!)
-                                        self.sourseArray.append(newSourse)
-                        
-                        
-                                        self.collectionview.reloadData()
-                        
-//                                }
-                    
-                    
-                    
-                    //追加データを変数に入れる
+//        super.viewDidLoad()
+//
+////        let uid = Auth.auth().currentUser?.uid
+//
+//        let db = Firestore.firestore()
+//
+//        let ref = db.collection("posts")
+//
+//
+//        ref.addSnapshotListener{ (document, error) in
+//
+//
+//            guard let value = document else {
+//                print("snapShot is nil")
+//                return
+//            }
+//
+//
+//            value.documentChanges.forEach{diff in
+//
+//                if diff.type == .added {
+//
+//
+//
 //                    let chatDataOp = diff.document.data() as? Dictionary<String, String>
+//
 //                    print(diff.document.data())
+//
 //                    guard let chatData = chatDataOp else {
 //                        return
 //                    }
-//                    guard let message = chatData["message"] else {
-//                        return
-//                    }
-//                    guard let name = chatData["name"] else {
-//                        return
-//                    }
-//                    //TextViewの一番下に新しいメッセージ内容を追加する
-//                    self.textView.text =  "\(self.textView.text!)\n\(name) : \(message)"
+//
+//                    let comment = chatData["comment"]
+//                    let postURL = chatData["postImage"]
+//
+//
+//                                        let newSourse = Post(postImage: postURL!, comment: comment!)
+//                                        self.sourseArray.append(newSourse)
+//
+//
+//                                        self.collectionview.reloadData()
+//
+//
 //                }
-            }
-
-//
-//            for document in document!.documents {
-//                    print("\(document.documentID) => \(document.data())")
-//
-//
-//
-//                let comment = document["comment"] as? String
-//                let postURL = document["postImage"] as? String
-//
-//
-//                let newSourse = Post(postImage: postURL!, comment: comment!)
-//                self.sourseArray.append(newSourse)
-//
-//
-//                self.collectionview.reloadData()
-//
+//            }
 //        }
-//
-//
-//    }
+        
     
-                //    }}}
-            }}}
+    }
  
     
   
@@ -133,11 +96,7 @@ class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewData
         let postImageUrl = NSURL(string: (sourseArray[indexPath.row].postImage) as String)
         
         cell.postImage.sd_setImage(with: postImageUrl as URL?)
-        
        
-        
-        
-        
         return cell
     
     
