@@ -130,6 +130,40 @@ class showProfile: UIViewController, UICollectionViewDataSource, UICollectionVie
         
         return cell
     }
+    
+    
+    
+    @IBAction func follow(_ sender: Any) {
+        
+        
+        if let currentUser = Auth.auth().currentUser {
+            
+        
+        
+        let db = Firestore.firestore()
+        
+        let follow = [
+            
+            "followID": reciveID
+         
+        ]
+        
+        
+        db.collection("users").document(currentUser.uid).collection("follow").document().setData(follow as [String : Any]) { err in
+            
+            if let err = err {
+                print("Error writing document: \(err)")
+            }
+                
+            else {
+                print("Document successfully written!")
+            }
+            
+        
+    }
+    
+        }
+}
 
 
 }

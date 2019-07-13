@@ -105,6 +105,9 @@
                                 <state key="normal" title="フォロー">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="follow:" destination="4Ug-6N-8BU" eventType="touchUpInside" id="ApA-jl-b9k"/>
+                                </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GGe-1F-bSe">
                                 <rect key="frame" x="0.0" y="265" width="414" height="548"/>
