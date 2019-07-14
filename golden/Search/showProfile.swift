@@ -95,7 +95,7 @@ class showProfile: UIViewController, UICollectionViewDataSource, UICollectionVie
                     let sendID = chatData["userID"]
                     
                     
-                    let newSourse = Post(postImage: postURL!, comment: comment!, uuid: sendID!)
+                    let newSourse = Post(postImage: postURL!, comment: comment!, uuid: sendID!, author: comment!)
                     self.showPost.append(newSourse)
                     
                     
@@ -149,7 +149,7 @@ class showProfile: UIViewController, UICollectionViewDataSource, UICollectionVie
         ]
         
         
-        db.collection("users").document(currentUser.uid).collection("follow").document().updateData(follow as [String : Any]) { err in
+        db.collection("users").document(currentUser.uid).collection("follow").document().setData(follow as [String : Any]) { err in
             
             if let err = err {
                 print("Error writing document: \(err)")

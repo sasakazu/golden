@@ -223,12 +223,13 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Button"/>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bde-51-PuJ">
-                                                    <rect key="frame" x="104" y="20" width="290" height="30"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Nm-Fr-oYI">
+                                                    <rect key="frame" x="104" y="20" width="290" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <state key="normal" title="username"/>
-                                                </button>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </view>
                                         <connections>
@@ -236,7 +237,7 @@
                                             <outlet property="dogname" destination="kNg-26-63t" id="Qfd-dG-mBe"/>
                                             <outlet property="postImage" destination="wMQ-tX-n8b" id="23M-kG-uBa"/>
                                             <outlet property="userIcon" destination="DrP-Bv-f6w" id="yKk-LQ-2UE"/>
-                                            <outlet property="username" destination="Bde-51-PuJ" id="gjF-lL-K7v"/>
+                                            <outlet property="username" destination="3Nm-Fr-oYI" id="hzH-jZ-ifA"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -620,9 +621,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJ0-yO-SEc">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJ0-yO-SEc">
                                 <rect key="frame" x="131" y="816" width="153" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="N4d-li-c68"/>
+                                    <constraint firstAttribute="width" constant="153" id="hXU-eq-8hD"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Log out">
                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -633,6 +637,11 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gGA-20-9aQ" firstAttribute="bottom" secondItem="dJ0-yO-SEc" secondAttribute="bottom" constant="16" id="aLq-hE-HXm"/>
+                            <constraint firstItem="dJ0-yO-SEc" firstAttribute="leading" secondItem="gGA-20-9aQ" secondAttribute="leading" constant="131" id="fjK-wp-PaZ"/>
+                            <constraint firstItem="gGA-20-9aQ" firstAttribute="trailing" secondItem="dJ0-yO-SEc" secondAttribute="trailing" constant="130" id="lpW-Qo-BTO"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="gGA-20-9aQ"/>
                     </view>
                     <connections>

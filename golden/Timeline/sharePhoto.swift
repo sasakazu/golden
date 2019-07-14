@@ -141,16 +141,38 @@ UINavigationControllerDelegate {
                 
         let postdata = downloadURL.absoluteString
                 
-        
+                let db = Firestore.firestore()
+                
+                let ref = db.collection("users").document(userID!)
+                
+                
+                ref.getDocument { (document, error) in
+                    if let document = document, document.exists {
+                        
+                      
+                        
+                        let username = document["userName"] as? String
+                        //                            let dogname = document["dogName"] as? String
+                        let iconURL = document["iconImage"] as? String
+                        
+                        
+                        //                            let userinfo = User(userName: username!, userIcon: iconURL ?? "")
+                        //                            self.userArray.append(userInfo)
+                        
+                        
+                        print("-------------\(document)")
+             
+      
         let data = [
             "comment": self.hitokoto.text as Any,
             "userID": userID as Any,
-            "postImage": postdata
+            "postImage": postdata,
+            "username": document
             
             ] as [String : Any]
         
         
-        let db = Firestore.firestore()
+//        let db = Firestore.firestore()
         
                 db.collection("users").document(userID!).collection("posts").addDocument(data: data as [String : Any]) { err in
             
@@ -178,10 +200,10 @@ UINavigationControllerDelegate {
     
         }
         
-        
+            }
     }
     
-    
+    }
     
     
     

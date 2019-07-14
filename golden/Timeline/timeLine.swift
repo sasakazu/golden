@@ -15,6 +15,9 @@ class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewData
 
    
     var sourseArray = [Post]()
+    var userArray = [User]()
+    
+  
     
 //    var getfollowID:String = ""
     
@@ -43,6 +46,28 @@ class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewData
                     let getfollowID = doc["followID"] as! String
                     
                     print(getfollowID)
+                    
+                    
+                    
+                    let ref = db.collection("users").document(getfollowID)
+                    
+                    
+                    ref.getDocument { (document, error) in
+                        if let document = document, document.exists {
+                         
+                            let username = document["userName"] as? String
+                            //                            let dogname = document["dogName"] as? String
+                            let iconURL = document["iconImage"] as? String
+                            
+                            
+                            let userinfo = User(userName: username!, userIcon: iconURL ?? "")
+                            self.userArray.append(userinfo)
+                            
+                            
+                            print("-------------\(username)")
+                            
+                
+
                     
                     let myPostRef = db.collection("users").document(getfollowID).collection("posts")
                     
@@ -73,13 +98,16 @@ class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewData
                                 let comment = chatData["comment"]
                                 let postURL = chatData["postImage"]
                                 let sendID = chatData["userID"]
+                                let author = username
                                 
                                 
-                                let newSourse = Post(postImage: postURL!, comment: comment!, uuid: sendID!)
+                                let newSourse = Post(postImage: postURL!, comment: comment!, uuid: sendID!, author: username!)
                                 self.sourseArray.append(newSourse)
-                                
+                               
                                 
                                 self.collectionview.reloadData()
+                                
+                       
                                 
                              
                             }
@@ -87,16 +115,20 @@ class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewData
                     
                         }
                     
-                    
+                        }
                 }
                 
                 
         }
         
+                
+        
+        
+        }
         }
         
-        
      
+        
         
         
         
@@ -120,6 +152,9 @@ class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewData
             for: indexPath as IndexPath) as! customCell
         
         
+        cell.username.text = sourseArray[indexPath.row].author
+        
+    
         
         cell.comment.text = sourseArray[indexPath.row].comment
         

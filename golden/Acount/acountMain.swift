@@ -88,7 +88,7 @@ class acountMain: UIViewController, UICollectionViewDataSource, UICollectionView
                     let sendID = chatData["userID"]
                     
                     
-                    let newSourse = Post(postImage: postURL!, comment: comment!, uuid: sendID!)
+                    let newSourse = Post(postImage: postURL!, comment: comment!, uuid: sendID!, author: comment!)
                     self.myPostArray.append(newSourse)
                     
                     
