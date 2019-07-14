@@ -110,25 +110,25 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GGe-1F-bSe">
-                                <rect key="frame" x="0.0" y="265" width="414" height="548"/>
+                                <rect key="frame" x="0.0" y="255" width="414" height="558"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6bs-2T-j4B">
-                                    <size key="itemSize" width="188" height="149"/>
+                                    <size key="itemSize" width="149" height="149"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="PNV-L6-YqP" customClass="showProfileCell" customModule="golden" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="188" height="149"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="149" height="149"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="188" height="149"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="149" height="149"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L5K-6o-EMY">
-                                                    <rect key="frame" x="0.0" y="1" width="188" height="148"/>
+                                                    <rect key="frame" x="0.0" y="1" width="149" height="148"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -378,7 +378,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="51t-vj-uph">
-                                <rect key="frame" x="0.0" y="278" width="414" height="550"/>
+                                <rect key="frame" x="0.0" y="339" width="414" height="489"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Vka-FR-pYa">
@@ -411,6 +411,33 @@
                                     <outlet property="delegate" destination="IAk-oR-VB7" id="s2D-YH-r1N"/>
                                 </connections>
                             </collectionView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Rus-cF-CkN">
+                                <rect key="frame" x="0.0" y="258" width="414" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DaF-sq-f0r">
+                                    <size key="itemSize" width="71" height="61"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Ad9-Mb-cYJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="71" height="61"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="71" height="61"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qrg-UL-9Pv">
+                                                    <rect key="frame" x="0.0" y="0.0" width="71" height="61"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -422,7 +449,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WGS-U1-fFi"/>
                     </view>
-                    <navigationItem key="navigationItem" id="yMz-pT-jzD"/>
+                    <navigationItem key="navigationItem" id="yMz-pT-jzD">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="dog" id="uIE-Yt-OHS">
+                            <connections>
+                                <segue destination="bo5-Mn-uPD" kind="show" id="Mmw-Ub-v3n"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionview" destination="51t-vj-uph" id="94Y-jI-El3"/>
                         <outlet property="dogname" destination="4SD-jC-Zh4" id="oSd-aM-c6f"/>
@@ -433,6 +466,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BpP-dv-UUz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1657.9710144927537" y="892.63392857142856"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="yM5-qF-UMr">
+            <objects>
+                <viewController id="bo5-Mn-uPD" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ptd-NU-4g5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="6XW-vu-seb"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="er0-qE-BML" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1658" y="1569"/>
         </scene>
         <!--Edit Profile-->
         <scene sceneID="grj-DE-yNm">
@@ -741,6 +789,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="dog" width="32" height="32"/>
         <image name="noimage" width="300" height="300"/>
         <image name="picture" width="32" height="32"/>
     </resources>
