@@ -290,10 +290,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5oY-RY-7ca">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5oY-RY-7ca">
                                 <rect key="frame" x="21" y="730" width="372" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.192208292" green="0.4613459506" blue="1" alpha="0.92816245720000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="BAW-E0-fO2"/>
+                                    <constraint firstAttribute="width" constant="372" id="UeD-kS-4Dr"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <state key="normal" title="Share">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -304,6 +307,11 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="g0J-Cp-cfs" firstAttribute="trailing" secondItem="5oY-RY-7ca" secondAttribute="trailing" constant="21" id="1Qi-Q7-edP"/>
+                            <constraint firstItem="5oY-RY-7ca" firstAttribute="leading" secondItem="g0J-Cp-cfs" secondAttribute="leading" constant="21" id="9Lk-id-Qtd"/>
+                            <constraint firstItem="g0J-Cp-cfs" firstAttribute="bottom" secondItem="5oY-RY-7ca" secondAttribute="bottom" constant="35" id="Zbf-O9-3km"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="g0J-Cp-cfs"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="hBr-2Q-5bQ">

@@ -28,48 +28,60 @@ class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewData
     override func viewDidLoad() {
         
         
-//        follow id を取ってくる
+//        follow id を取得
         
         let db = Firestore.firestore()
         
         let user = Auth.auth().currentUser
         
-//        let followRef = db.collection("users").document(user!.uid).collection("follow")
         
+        let ref = db.collection("users").document(user!.uid).collection("follow")
         
+
         
-        db.collection("users").document(user!.uid)
-            .collection("follow").getDocuments { (snapshot, error) in
-                snapshot!.documents.forEach { doc in
-//                    print(doc)
+        ref.addSnapshotListener{ (document, error) in
+            
+            
+            guard let value = document else {
+                print("snapShot is nil")
+                return
+            }
+            
+            
+            value.documentChanges.forEach{diff in
+                
+                if diff.type == .added {
                     
-                    let getfollowID = doc["followID"] as! String
+           
+                    let chatDataOp = diff.document.data() as? Dictionary<String, String>
                     
-                    print(getfollowID)
+                    print(diff.document.data())
+                    
+                    guard let chatData = chatDataOp else {
+                        return
+                    }
+                    
+                    let getfollowID = chatData["followID"]
+                    
+                
+//                    フォローしているUserを取得
+                    let useRef = db.collection("users").document(getfollowID ?? "")
                     
                     
-                    
-                    let ref = db.collection("users").document(getfollowID)
-                    
-                    
-                    ref.getDocument { (document, error) in
+                useRef.getDocument { (document, error) in
                         if let document = document, document.exists {
                          
                             let username = document["userName"] as? String
-                            //                            let dogname = document["dogName"] as? String
+//                            let dogname = document["dogName"] as? String
                             let iconURL = document["iconImage"] as? String
                             
                             
                             let userinfo = User(userName: username!, userIcon: iconURL ?? "")
                             self.userArray.append(userinfo)
                             
-                            
-                            print("-------------\(username)")
-                            
-                
-
-                    
-                    let myPostRef = db.collection("users").document(getfollowID).collection("posts")
+                       
+//                    フォローしているpostを取得する
+                    let myPostRef = db.collection("users").document(getfollowID ?? "").collection("posts")
                     
                     
                     myPostRef.addSnapshotListener{ (postdocument, error) in
@@ -98,7 +110,7 @@ class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewData
                                 let comment = chatData["comment"]
                                 let postURL = chatData["postImage"]
                                 let sendID = chatData["userID"]
-                                let author = username
+                               
                                 
                                 
                                 let newSourse = Post(postImage: postURL!, comment: comment!, uuid: sendID!, author: username!)
@@ -110,31 +122,24 @@ class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewData
                        
                                 
                              
+                                }
                             }
-                    
-                    
                         }
-                    
-                        }
+                    }
                 }
-                
-                
+            }
         }
-        
-                
-        
-        
-        }
-        }
-        
-     
-        
-        
-        
-        
-//        end load
+    }
+      
+    
     }
   
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.collectionview.reloadData()
+    }
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         

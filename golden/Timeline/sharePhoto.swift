@@ -166,15 +166,15 @@ UINavigationControllerDelegate {
         let data = [
             "comment": self.hitokoto.text as Any,
             "userID": userID as Any,
-            "postImage": postdata,
-            "username": document
+            "postImage": postdata
+           
             
             ] as [String : Any]
         
         
 //        let db = Firestore.firestore()
         
-                db.collection("users").document(userID!).collection("posts").addDocument(data: data as [String : Any]) { err in
+                        db.collection("users").document(userID!).collection("posts").document().setData(data as [String : Any]) { err in
             
             if let err = err {
                 print("Error adding document: \(err)")
