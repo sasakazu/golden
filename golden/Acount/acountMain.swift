@@ -12,8 +12,6 @@ import FirebaseUI
 
 class acountMain: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
- 
-    
     var myPostArray = [Post]()
 
     @IBOutlet weak var imageview: UIImageView!
@@ -21,6 +19,9 @@ class acountMain: UIViewController, UICollectionViewDataSource, UICollectionView
     @IBOutlet weak var dogname: UILabel!
     
     @IBOutlet weak var collectionview: UICollectionView!
+    
+    
+    @IBOutlet weak var myDogCollectionview: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,6 +102,9 @@ class acountMain: UIViewController, UICollectionViewDataSource, UICollectionView
 
   
     }
+    
+    
+    
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
