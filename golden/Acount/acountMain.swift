@@ -58,8 +58,8 @@ class acountMain: UIViewController, UICollectionViewDataSource, UICollectionView
             }
 
         
-        }
         
+        }
         
         myPostRef.addSnapshotListener{ (postdocument, error) in
             
@@ -89,7 +89,7 @@ class acountMain: UIViewController, UICollectionViewDataSource, UICollectionView
                     let sendID = chatData["userID"]
                     
                     
-                    let newSourse = Post(postImage: postURL!, comment: comment!, uuid: sendID!, author: comment!)
+                    let newSourse = Post(postImage: postURL!, comment: comment!, uuid: sendID!, author: comment!, authorIcon: comment!)
                     self.myPostArray.append(newSourse)
                     
                     
@@ -99,7 +99,7 @@ class acountMain: UIViewController, UICollectionViewDataSource, UICollectionView
                 }
             }}
             
-
+        
   
     }
     

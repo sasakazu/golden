@@ -29,9 +29,41 @@ class addMyDogView: UIViewController {
    
     
     @IBAction func saveBtn(_ sender: Any) {
-    
+        
+        if let currentUser = Auth.auth().currentUser {
+            
+            let mydogname = self.mydogTF.text
+         
+            let db = Firestore.firestore()
+            
+            let mydogs = [
+                
+                "mydogname": mydogname
+               
+                
+            ]
+             db.collection("users").document((currentUser.uid)).collection("myDogs").document().setData(mydogs as [String : Any]) { err in
+                
+                if let err = err {
+                    print("Error writing document: \(err)")
+                }
+                    
+                else {
+                    print("Document successfully written!")
+                }
+                
+                
+            }
+            
+        }
+        
+        self.navigationController?.popViewController(animated: true)
+        
     
     }
+
+    
+
     
     
     

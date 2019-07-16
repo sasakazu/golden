@@ -95,7 +95,7 @@ class showProfile: UIViewController, UICollectionViewDataSource, UICollectionVie
                     let sendID = chatData["userID"]
                     
                     
-                    let newSourse = Post(postImage: postURL!, comment: comment!, uuid: sendID!, author: comment!)
+                    let newSourse = Post(postImage: postURL!, comment: comment!, uuid: sendID!, author: comment!, authorIcon: comment!)
                     self.showPost.append(newSourse)
                     
                     

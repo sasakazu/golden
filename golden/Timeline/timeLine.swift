@@ -110,10 +110,11 @@ class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewData
                                 let comment = chatData["comment"]
                                 let postURL = chatData["postImage"]
                                 let sendID = chatData["userID"]
+                                
                                
                                 
                                 
-                                let newSourse = Post(postImage: postURL!, comment: comment!, uuid: sendID!, author: username!)
+                                let newSourse = Post(postImage: postURL!, comment: comment!, uuid: sendID!, author: username!, authorIcon: iconURL!)
                                 self.sourseArray.append(newSourse)
                                
                                 
@@ -157,9 +158,14 @@ class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewData
             for: indexPath as IndexPath) as! customCell
         
         
-        cell.username.text = sourseArray[indexPath.row].author
+        let userImageUrl = NSURL(string: (sourseArray[indexPath.row].postImage) as String)
         
-    
+        cell.userIcon.sd_setImage(with: userImageUrl as URL?)
+        
+        cell.userIcon.layer.cornerRadius = 30
+        
+        
+        cell.username.text = sourseArray[indexPath.row].author
         
         cell.comment.text = sourseArray[indexPath.row].comment
         
