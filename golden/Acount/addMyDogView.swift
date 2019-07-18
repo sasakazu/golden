@@ -33,16 +33,19 @@ class addMyDogView: UIViewController {
         if let currentUser = Auth.auth().currentUser {
             
             let mydogname = self.mydogTF.text
-         
+            let dogid = NSUUID().uuidString
+            
             let db = Firestore.firestore()
+            
             
             let mydogs = [
                 
-                "mydogname": mydogname
+                "mydogname": mydogname,
+                "dogid": dogid
                
                 
             ]
-             db.collection("users").document((currentUser.uid)).collection("myDogs").document().setData(mydogs as [String : Any]) { err in
+             db.collection("users").document((currentUser.uid)).collection("myDogs").document(dogid).setData(mydogs as [String : Any]) { err in
                 
                 if let err = err {
                     print("Error writing document: \(err)")
