@@ -130,7 +130,7 @@ class acountMain: UIViewController, UICollectionViewDataSource, UICollectionView
         let postImageUrl = NSURL(string: (myPostArray[indexPath.row].postImage) as String)
         
         cell.myPostImage.sd_setImage(with: postImageUrl as URL?)
-        
+//        cell.myPostImage.layer.cornerRadius = 40
         
         
         

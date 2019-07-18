@@ -25,6 +25,8 @@ class myPostsView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        userIcon.layer.cornerRadius = 40
+        
         
         let db = Firestore.firestore()
         
