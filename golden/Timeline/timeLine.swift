@@ -76,8 +76,8 @@ class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewData
                             let iconURL = document["iconImage"] as? String
                             
                             
-                            let userinfo = User(userName: username!, userIcon: iconURL ?? "")
-                            self.userArray.append(userinfo)
+//                            let userinfo = User(userName: username!, userIcon: iconURL ?? "")
+//                            self.userArray.append(userinfo)
                             
                        
 //                    フォローしているpostを取得する
@@ -110,11 +110,11 @@ class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewData
                                 let comment = chatData["comment"]
                                 let postURL = chatData["postImage"]
                                 let sendID = chatData["userID"]
-                                
+                                let postId = chatData["postID"]
                                
                                 
                                 
-                                let newSourse = Post(postImage: postURL!, comment: comment!, uuid: sendID!, author: username!, authorIcon: iconURL!)
+                                let newSourse = Post(postImage: postURL ?? "", comment: comment ?? "", uuid: sendID ?? "", author: username ?? "", authorIcon: iconURL ?? "", postId: postId ?? "")
                                 self.sourseArray.append(newSourse)
                                
                                 
@@ -158,7 +158,7 @@ class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewData
             for: indexPath as IndexPath) as! customCell
         
         
-        let userImageUrl = NSURL(string: (sourseArray[indexPath.row].postImage) as String)
+        let userImageUrl = NSURL(string: (sourseArray[indexPath.row].authorIcon) as String)
         
         cell.userIcon.sd_setImage(with: userImageUrl as URL?)
         

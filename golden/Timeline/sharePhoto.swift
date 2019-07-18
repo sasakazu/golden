@@ -16,11 +16,13 @@ UINavigationControllerDelegate {
     
     @IBOutlet weak var pictureImage: UIImageView!
     @IBOutlet weak var hitokoto: UITextField!
+    @IBOutlet weak var shareBtn: UIButton!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        shareBtn.layer.cornerRadius = 5
+        pictureImage.layer.cornerRadius = 3
         
        
     }
@@ -140,41 +142,27 @@ UINavigationControllerDelegate {
                 }
                 
         let postdata = downloadURL.absoluteString
+     
                 
-                let db = Firestore.firestore()
-                
-                let ref = db.collection("users").document(userID!)
-                
-                
-                ref.getDocument { (document, error) in
-                    if let document = document, document.exists {
-                        
-                      
-                        
-                        let username = document["userName"] as? String
-                        //                            let dogname = document["dogName"] as? String
-                        let iconURL = document["iconImage"] as? String
-                        
-                        
-                        //                            let userinfo = User(userName: username!, userIcon: iconURL ?? "")
-                        //                            self.userArray.append(userInfo)
-                        
-                        
-                        print("-------------\(document)")
-             
+        let postid = NSUUID().uuidString
+
       
-        let data = [
-            "comment": self.hitokoto.text as Any,
+        let data: [String: Any] = [
+            "comment": self.hitokoto.text ?? "",
             "userID": userID as Any,
-            "postImage": postdata
-           
-            
+            "postImage": postdata,
+            "postId": postid
+
+
             ] as [String : Any]
         
+         
+        let db = Firestore.firestore()
         
-//        let db = Firestore.firestore()
-        
-                        db.collection("users").document(userID!).collection("posts").document().setData(data as [String : Any]) { err in
+                db.collection("users").document(userID!).collection("posts").document("\(postid)").setData(data){ err in
+                            
+                            
+                       
             
             if let err = err {
                 print("Error adding document: \(err)")
@@ -201,9 +189,8 @@ UINavigationControllerDelegate {
         }
         
             }
-    }
     
-    }
+
     
     
     

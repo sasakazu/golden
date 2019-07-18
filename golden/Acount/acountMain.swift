@@ -13,6 +13,8 @@ import FirebaseUI
 class acountMain: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var myPostArray = [Post]()
+    
+    var sendPostID:String = ""
 
     @IBOutlet weak var imageview: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -84,12 +86,13 @@ class acountMain: UIViewController, UICollectionViewDataSource, UICollectionView
                         return
                     }
                     
-                    let comment = chatData["comment"]
-                    let postURL = chatData["postImage"]
-                    let sendID = chatData["userID"]
+                    let comment = chatData["comment"] ?? ""
+                    let postURL = chatData["postImage"] ?? ""
+                    let sendID = chatData["userID"] ?? ""
+                    let postId = chatData["postId"] ?? ""
                     
                     
-                    let newSourse = Post(postImage: postURL!, comment: comment!, uuid: sendID!, author: comment!, authorIcon: comment!)
+                    let newSourse = Post(postImage: postURL, comment: comment, uuid: sendID, author: comment, authorIcon: comment, postId: postId)
                     self.myPostArray.append(newSourse)
                     
                     
@@ -137,6 +140,27 @@ class acountMain: UIViewController, UICollectionViewDataSource, UICollectionView
 
  
 
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        
+         sendPostID = myPostArray[indexPath.row].postId
+        
+        performSegue(withIdentifier: "goPosts", sender: nil)
+        
+      
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let next = segue.destination as? myPostsView
+        
+        
+        next?.postID = sendPostID
+        
+        
+    }
+    
     
     
     

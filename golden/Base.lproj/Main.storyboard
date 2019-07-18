@@ -206,22 +206,22 @@
                                                     <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8e-9T-h9L">
-                                                    <rect key="frame" x="223" y="550" width="46" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8e-9T-h9L">
+                                                    <rect key="frame" x="248" y="549" width="39" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button"/>
+                                                    <state key="normal" title="Button" image="heart2"/>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xb2-ln-DrL">
-                                                    <rect key="frame" x="286" y="555" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xb2-ln-DrL">
+                                                    <rect key="frame" x="295" y="554" width="40" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIL-C2-mES">
-                                                    <rect key="frame" x="348" y="550" width="46" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIL-C2-mES">
+                                                    <rect key="frame" x="352" y="549" width="42" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button"/>
+                                                    <state key="normal" title="Button" image="twitter"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Nm-Fr-oYI">
                                                     <rect key="frame" x="104" y="20" width="290" height="21"/>
@@ -331,6 +331,7 @@
                     <connections>
                         <outlet property="hitokoto" destination="NSO-Eg-CCp" id="ONf-gF-2mi"/>
                         <outlet property="pictureImage" destination="7AP-IQ-ERw" id="OOJ-IY-eDK"/>
+                        <outlet property="shareBtn" destination="5oY-RY-7ca" id="U5D-Yh-wRF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ga1-yb-FWg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -478,6 +479,7 @@
                         <outlet property="imageview" destination="60z-Fh-HkD" id="S1p-6n-3JT"/>
                         <outlet property="myDogCollectionview" destination="Rus-cF-CkN" id="TLk-eV-GmH"/>
                         <outlet property="usernameLabel" destination="zbO-RD-LYA" id="fYA-R2-9RS"/>
+                        <segue destination="vpr-zj-dKC" kind="show" identifier="goPosts" id="Hjn-Fk-Nvd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BpP-dv-UUz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -534,6 +536,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="er0-qE-BML" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1657.9710144927537" y="1568.9732142857142"/>
+        </scene>
+        <!--投稿-->
+        <scene sceneID="Eke-W8-vEo">
+            <objects>
+                <viewController id="vpr-zj-dKC" customClass="myPostsView" customModule="golden" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Azi-dZ-mH7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U7s-Gs-DDG">
+                                <rect key="frame" x="20" y="109" width="81" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="user name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K3k-u7-OSn">
+                                <rect key="frame" x="120" y="109" width="274" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="dog name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7L-qH-YjF">
+                                <rect key="frame" x="120" y="151" width="274" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3bl-bg-daT">
+                                <rect key="frame" x="0.0" y="207" width="414" height="484"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cS3-p1-hoz">
+                                <rect key="frame" x="20" y="719" width="374" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="GIM-Tz-gBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="投稿" id="VjO-ud-oOa">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="7Vi-zT-CUT">
+                            <connections>
+                                <action selector="trash:" destination="vpr-zj-dKC" id="Trj-Xi-eLl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="comment" destination="cS3-p1-hoz" id="fVx-QO-dnv"/>
+                        <outlet property="dogname" destination="J7L-qH-YjF" id="Ffe-kt-oHu"/>
+                        <outlet property="postImage" destination="3bl-bg-daT" id="7IV-Rl-BQU"/>
+                        <outlet property="userIcon" destination="U7s-Gs-DDG" id="GDI-7W-0hi"/>
+                        <outlet property="username" destination="K3k-u7-OSn" id="BZd-jI-90G"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4tm-jk-kbN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2498.5507246376815" y="1650"/>
         </scene>
         <!--Edit Profile-->
         <scene sceneID="grj-DE-yNm">
@@ -626,7 +688,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vIv-QO-ath" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2444.9275362318845" y="892.63392857142856"/>
+            <point key="canvasLocation" x="2445" y="893"/>
         </scene>
         <!--Login-->
         <scene sceneID="hxU-t0-EMw">
@@ -846,8 +908,10 @@
         <image name="dog" width="32" height="32"/>
         <image name="dogfood" width="32" height="32"/>
         <image name="doghouse2" width="32" height="32"/>
+        <image name="heart2" width="32" height="32"/>
         <image name="noimage" width="300" height="300"/>
         <image name="picture" width="32" height="32"/>
+        <image name="twitter" width="32" height="32"/>
         <image name="ダウンロード" width="137.5" height="91.5"/>
     </resources>
 </document>

@@ -54,9 +54,10 @@ class searchMain: UIViewController, UICollectionViewDataSource, UICollectionView
                     let comment = chatData["comment"]
                     let postURL = chatData["postImage"]
                     let sendID = chatData["userID"]
+                    let postId = chatData["postID"]
                     
                     
-                    let newSourse = Post(postImage: postURL!, comment: comment!, uuid: sendID!, author: comment!, authorIcon: comment!)
+                    let newSourse = Post(postImage: postURL ?? "", comment: comment ?? "", uuid: sendID ?? "", author: comment ?? "", authorIcon: comment ?? "", postId: postId ?? "")
                     self.searchPost.append(newSourse)
                     
                     
