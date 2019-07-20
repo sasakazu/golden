@@ -40,7 +40,7 @@ class acountMain: UIViewController, UICollectionViewDataSource, UICollectionView
         
         let userID = Auth.auth().currentUser?.uid
         
-        let ref = db.collection("users").document(userID!)
+        let ref = db.collection("users").document(userID!).collection("userInfo").document(userID!)
 
         let myPostRef = db.collection("users").document(userID!).collection("posts")
         

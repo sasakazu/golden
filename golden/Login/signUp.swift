@@ -43,14 +43,18 @@ class signUp: UIViewController, UITextFieldDelegate {
         
         Auth.auth().createUser(withEmail: email!, password: password!) { (user, error) in
             
+         
+            
             let newUser = [
                 "userName": userName,
                 "email": email,
                 "userID": user?.user.uid
-
+               
             ]
+         
+
             
-            db.collection("users").document((user?.user.uid)!).setData(newUser as [String : Any]) { err in
+            db.collection("users").document((user?.user.uid)!).collection("userInfo").document((user?.user.uid)!).setData(newUser as [String : Any]) { err in
                 
                 if let err = err {
                     print("Error writing document: \(err)")
