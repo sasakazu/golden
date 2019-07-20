@@ -15,13 +15,13 @@ class User {
     
     var userName:String = ""
     var userIcon:String = ""
-//    var uuid:String = ""
+    var profile:String = ""
     
-    init(userName: String, userIcon: String) {
+    init(userName: String, userIcon: String, profile: String) {
         
         self.userName = userName
         self.userIcon = userName
-//        self.uuid = uuid
+        self.profile = profile
         
     }
     

@@ -18,7 +18,8 @@ class acountMain: UIViewController, UICollectionViewDataSource, UICollectionView
 
     @IBOutlet weak var imageview: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var dogname: UILabel!
+    @IBOutlet weak var profileTV: UITextView!
+    
     
     @IBOutlet weak var collectionview: UICollectionView!
     
@@ -29,6 +30,10 @@ class acountMain: UIViewController, UICollectionViewDataSource, UICollectionView
         super.viewDidLoad()
 
         imageview.layer.cornerRadius = 64
+        
+        self.profileTV.isEditable = false
+
+        
 
         let db = Firestore.firestore()
     
@@ -42,13 +47,12 @@ class acountMain: UIViewController, UICollectionViewDataSource, UICollectionView
         ref.addSnapshotListener{ (document, error) in
             if let document = document, document.exists {
 
-                let username = document["userName"] as? String
-                let dogname = document["dogName"] as? String
-                let iconURL = document["iconImage"] as? String
+               let username = document["userName"] as? String
+               let iconURL = document["iconImage"] as? String
+               let profile = document["profile"] as? String
                 
                 self.usernameLabel.text = username
-                self.dogname.text = dogname
-                
+                self.profileTV.text = profile
                
                 
                 let url = NSURL(string: iconURL ?? "")

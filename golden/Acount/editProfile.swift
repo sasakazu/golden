@@ -15,16 +15,24 @@ UINavigationControllerDelegate {
     @IBOutlet weak var editImage: UIImageView!
     
     @IBOutlet weak var editUsername: UITextField!
-    
-    @IBOutlet weak var editDogname: UITextField!
-    
+  
+    @IBOutlet weak var profileTF: UITextView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        editImage.layer.cornerRadius = 50
+        profileTF.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        
+        profileTF.layer.borderWidth = 1.0
+        
+        profileTF.layer.cornerRadius = 10.0
+        profileTF.layer.masksToBounds = true
+        
+        editImage.layer.cornerRadius = 30
 
+        
+        
         let db = Firestore.firestore()
         
         let userID = Auth.auth().currentUser?.uid
@@ -37,13 +45,15 @@ UINavigationControllerDelegate {
             if let document = document {
                 
                 let username = document["userName"] as? String
-                let dogname = document["dogName"] as? String
-                 let iconURL = document["iconImage"] as? String
+              
+                let profile = document["profile"] as? String
+                
+                let iconURL = document["iconImage"] as? String
                 
                 
                 self.editUsername.text = username
-                self.editDogname.text = dogname
-                
+                self.profileTF.text = profile
+              
                 let url = NSURL(string: iconURL ?? "")
                 self.editImage.sd_setImage(with: url as URL?)
                 
@@ -97,17 +107,17 @@ UINavigationControllerDelegate {
         
         if let currentUser = Auth.auth().currentUser {
         
-            let dogname = self.editDogname.text
-            let username = self.editUsername.text
-            let iconData = downloadURL.absoluteString
+           let username = self.editUsername.text
+           let profile = self.profileTF.text
+           let iconData = downloadURL.absoluteString
         
         let db = Firestore.firestore()
         
         let editProfile = [
            
             "userName": username,
-            "dogName": dogname,
-            "iconImage": iconData
+            "iconImage": iconData,
+            "profile": profile
             
         ]
         
