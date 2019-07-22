@@ -32,7 +32,7 @@ class myPostsView: UIViewController {
         
         let userID = Auth.auth().currentUser?.uid
         
-        let ref = db.collection("users").document(userID!)
+        let ref = db.collection("users").document(userID!).collection("userInfo").document(userID!)
         
         
         ref.addSnapshotListener{ (document, error) in

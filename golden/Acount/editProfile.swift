@@ -37,7 +37,7 @@ UINavigationControllerDelegate {
         
         let userID = Auth.auth().currentUser?.uid
         
-        let ref = db.collection("users").document(userID!)
+        let ref = db.collection("users").document(userID!).collection("userInfo").document(userID!)
         
         
         
@@ -122,7 +122,7 @@ UINavigationControllerDelegate {
         ]
         
         
-            db.collection("users").document((currentUser.uid)).updateData(editProfile as [String : Any]) { err in
+            db.collection("users").document(currentUser.uid).collection("userInfo").document(currentUser.uid).updateData(editProfile as [String : Any]) { err in
             
             if let err = err {
                 print("Error writing document: \(err)")

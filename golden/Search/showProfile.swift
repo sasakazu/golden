@@ -35,7 +35,7 @@ class showProfile: UIViewController, UICollectionViewDataSource, UICollectionVie
         
 //        ここからUserprofile
         
-        let ref = db.collection("users").document(reciveID)
+        let ref = db.collection("users").document(reciveID).collection("userInfo").document(reciveID)
         
         
         ref.addSnapshotListener{ (document, error) in

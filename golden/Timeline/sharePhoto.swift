@@ -114,6 +114,17 @@ UINavigationControllerDelegate {
         
         let userID = Auth.auth().currentUser?.uid
         
+        let db = Firestore.firestore()
+        
+      
+        
+      
+        
+        
+     
+                
+              
+        
         var imageData = Data()
         
         let storage = Storage.storage()
@@ -145,17 +156,32 @@ UINavigationControllerDelegate {
      
                 
         let postid = NSUUID().uuidString
+                
+                
+          let ref = db.collection("users").document(userID!).collection("userInfo").document(userID!)
+      
+                
+        ref.addSnapshotListener{ (document, error) in
+                    if let document = document, document.exists {
 
+//                        print(document.data())
+                        
+        let userinfo = document.data()
+                        
+//        let userinfo = document.data()
+
+                        print(document)
       
         let data: [String: Any] = [
             "comment": self.hitokoto.text ?? "",
             "userID": userID as Any,
             "postImage": postdata,
-            "postId": postid
+            "postId": postid,
+            "userinfo": userinfo as Any
 
 
             ] as [String : Any]
-        
+            
          
         let db = Firestore.firestore()
         
@@ -169,7 +195,7 @@ UINavigationControllerDelegate {
             } else {
                 print("success!")
             }
-        }
+            }
     
         let postdb = Firestore.firestore()
                 
@@ -186,9 +212,9 @@ UINavigationControllerDelegate {
 
             }
     
-        }
+                }}
+        }}
         
-            }
     
 
     
