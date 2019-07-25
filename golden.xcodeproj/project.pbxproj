@@ -168,8 +168,9 @@
 				73C82C2B22D1E34E0096AA8A /* Login */,
 				73C82C3022D1E4F20096AA8A /* Timeline */,
 				73C82C3122D1E4FB0096AA8A /* Search */,
-				73C82C3F22D5E2C00096AA8A /* Model */,
 				73C82C3222D1E5060096AA8A /* Acount */,
+				73C82C3F22D5E2C00096AA8A /* Model */,
+				73E30A7122E9B97800D84390 /* myDogs */,
 				73C82BFB22D1DE9A0096AA8A /* AppDelegate.swift */,
 				73C82BFD22D1DE9A0096AA8A /* ViewController.swift */,
 				73C82BFF22D1DE9A0096AA8A /* Main.storyboard */,
@@ -235,8 +236,6 @@
 				73C82C3722D1E6080096AA8A /* acountMain.swift */,
 				73C82C3D22D335E80096AA8A /* editProfile.swift */,
 				73C82C4222D7604E0096AA8A /* acountCustomCell.swift */,
-				73C82C4E22DC34AD0096AA8A /* dogCustomCell.swift */,
-				73C82C5022DC360A0096AA8A /* addMyDogView.swift */,
 				73C82C5222DF09A70096AA8A /* myPostsView.swift */,
 				73C82C5422DF0A0E0096AA8A /* myPostsCell.swift */,
 			);
@@ -250,6 +249,15 @@
 				73C82C4C22DAD8320096AA8A /* User.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		73E30A7122E9B97800D84390 /* myDogs */ = {
+			isa = PBXGroup;
+			children = (
+				73C82C5022DC360A0096AA8A /* addMyDogView.swift */,
+				73C82C4E22DC34AD0096AA8A /* dogCustomCell.swift */,
+			);
+			path = myDogs;
 			sourceTree = "<group>";
 		};
 		A584568005170594D70BC324 /* Frameworks */ = {

@@ -13,6 +13,7 @@ import FirebaseUI
 class acountMain: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var myPostArray = [Post]()
+
     
     var sendPostID:String = ""
 
@@ -20,12 +21,11 @@ class acountMain: UIViewController, UICollectionViewDataSource, UICollectionView
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var profileTV: UITextView!
     
+    @IBOutlet weak var dogCollectionview: UICollectionView!
     
     @IBOutlet weak var collectionview: UICollectionView!
     
-    
-    @IBOutlet weak var myDogCollectionview: UICollectionView!
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -54,6 +54,7 @@ class acountMain: UIViewController, UICollectionViewDataSource, UICollectionView
                 self.usernameLabel.text = username
                 self.profileTV.text = profile
                
+            
                 
                 let url = NSURL(string: iconURL ?? "")
                 self.imageview.sd_setImage(with: url as URL?)
@@ -110,7 +111,11 @@ class acountMain: UIViewController, UICollectionViewDataSource, UICollectionView
             }}
             
         
-  
+
+
+
+
+
     }
     
     
@@ -121,6 +126,7 @@ class acountMain: UIViewController, UICollectionViewDataSource, UICollectionView
         
         return myPostArray.count
         
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -129,8 +135,6 @@ class acountMain: UIViewController, UICollectionViewDataSource, UICollectionView
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: "Cell",
             for: indexPath as IndexPath) as! acountCustomCell
-        
-        
         
         
         
@@ -145,6 +149,9 @@ class acountMain: UIViewController, UICollectionViewDataSource, UICollectionView
         return cell
     }
 
+   
+    
+    
  
 
     
@@ -169,6 +176,21 @@ class acountMain: UIViewController, UICollectionViewDataSource, UICollectionView
     }
     
     
+ 
+    
+    
+    
+//
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//
+//
+//        sendPostID = myPostArray[indexPath.row].postId
+//
+//        performSegue(withIdentifier: "goPosts", sender: nil)
+//
+//
+//
+//    }
     
     
     

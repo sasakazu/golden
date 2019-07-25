@@ -51,9 +51,7 @@ UINavigationControllerDelegate {
         
         if let currentUser = Auth.auth().currentUser {
             
-            
-            let dogid = NSUUID().uuidString
-            
+        
             let db = Firestore.firestore()
             
             
@@ -91,12 +89,12 @@ UINavigationControllerDelegate {
             let mydogs = [
                 
                 "mydogname": mydogname,
-                "dogid": dogid,
+//                "dogid": dogid,
                 "myDogImage": mydogImage
                
                 
             ]
-             db.collection("users").document((currentUser.uid)).collection("myDogs").document(dogid).setData(mydogs as [String : Any]) { err in
+             db.collection("users").document((currentUser.uid)).collection("myDogs").document().setData(mydogs as [String : Any]) { err in
                 
                 if let err = err {
                     print("Error writing document: \(err)")
