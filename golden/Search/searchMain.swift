@@ -36,6 +36,7 @@ class searchMain: UIViewController, UICollectionViewDataSource, UICollectionView
                 return
             }
             
+//            print(document)
             
             value.documentChanges.forEach{diff in
                 
@@ -45,7 +46,7 @@ class searchMain: UIViewController, UICollectionViewDataSource, UICollectionView
                     
                     let chatDataOp = diff.document.data() as? Dictionary<String, String>
                     
-                    print(diff.document.data())
+//                    print(diff.document.data())
                     
                     guard let chatData = chatDataOp else {
                         return
@@ -55,6 +56,8 @@ class searchMain: UIViewController, UICollectionViewDataSource, UICollectionView
                     let postURL = chatData["postImage"]
                     let sendID = chatData["userID"]
                     let postId = chatData["postID"]
+                    
+                    print("^^^^^^^\(comment)")
                     
                     
                     let newSourse = Post(postImage: postURL ?? "", comment: comment ?? "", uuid: sendID ?? "", author: comment ?? "", authorIcon: comment ?? "", postId: postId ?? "")

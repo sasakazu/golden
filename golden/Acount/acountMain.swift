@@ -84,7 +84,9 @@ class acountMain: UIViewController, UICollectionViewDataSource, UICollectionView
                     
                     let chatDataOp = postdiff.document.data() as? Dictionary<String, String>
                     
-                    print(postdiff.document.data())
+                    
+                    
+//                    print(postdiff.document.data())
                     
                     guard let chatData = chatDataOp else {
                         return
@@ -99,6 +101,7 @@ class acountMain: UIViewController, UICollectionViewDataSource, UICollectionView
                     let newSourse = Post(postImage: postURL, comment: comment, uuid: sendID, author: comment, authorIcon: comment, postId: postId)
                     self.myPostArray.append(newSourse)
                     
+                    print("newsource\(newSourse)")
                     
                     self.collectionview.reloadData()
                     
