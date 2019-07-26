@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class editProfile: UIViewController, UIImagePickerControllerDelegate,
-UINavigationControllerDelegate {
+UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var editImage: UIImageView!
     
@@ -21,6 +21,9 @@ UINavigationControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        editUsername.delegate = self
+        profileTF.delegate = self as! UITextViewDelegate
         
         profileTF.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         
@@ -55,7 +58,7 @@ UINavigationControllerDelegate {
                 self.profileTF.text = profile
               
                 let url = NSURL(string: iconURL ?? "")
-                self.editImage.sd_setImage(with: url as URL?)
+                self.editImage.sd_setImage(with: url as URL?, placeholderImage:UIImage(named:"noimage"))
                 
                 
             }else{
@@ -220,6 +223,15 @@ UINavigationControllerDelegate {
     }
     
     
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        editUsername.resignFirstResponder()
+        profileTF.resignFirstResponder()
+        
+        return true
+        
+    }
     
     
 }

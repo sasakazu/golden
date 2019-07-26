@@ -10,16 +10,23 @@ import UIKit
 import Firebase
 
 class addMyDogView: UIViewController, UIImagePickerControllerDelegate,
-UINavigationControllerDelegate {
+UINavigationControllerDelegate, UITextFieldDelegate {
     
     
     @IBOutlet weak var mydogTF: UITextField!
     @IBOutlet weak var mydogImage: UIImageView!
+    @IBOutlet weak var fileBtn: UIButton!
+    @IBOutlet weak var saveBtn: UIButton!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        mydogTF.delegate = self
+        
+        mydogImage.layer.cornerRadius = 50
+        fileBtn.layer.cornerRadius = 3
+        saveBtn.layer.cornerRadius = 5
   
     }
     
@@ -160,7 +167,14 @@ UINavigationControllerDelegate {
     
     
     
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        mydogTF.resignFirstResponder()
+        
+        
+        return true
+        
+    }
     
     
     

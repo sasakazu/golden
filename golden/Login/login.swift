@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class login: UIViewController {
+class login: UIViewController, UITextFieldDelegate {
     
     
    
@@ -19,7 +19,9 @@ class login: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        emailTF.delegate = self
+        passTF.delegate = self
+        
     }
     
 
@@ -39,7 +41,16 @@ class login: UIViewController {
         }
     
     }
-
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        emailTF.resignFirstResponder()
+        passTF.resignFirstResponder()
+        
+        return true
+        
+    }
 
 
 }

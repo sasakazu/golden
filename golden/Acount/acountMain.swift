@@ -60,7 +60,7 @@ class acountMain: UIViewController, UICollectionViewDataSource, UICollectionView
             
                 
                 let url = NSURL(string: iconURL ?? "")
-                self.imageview.sd_setImage(with: url as URL?)
+                self.imageview.sd_setImage(with: url as URL?, placeholderImage:UIImage(named:"noimage"))
                 
                 
             }else{

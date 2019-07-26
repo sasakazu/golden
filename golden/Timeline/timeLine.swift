@@ -58,10 +58,7 @@ class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewData
                     
                     let chatDataOp = postdiff.document.data() as? Dictionary<String, String>
                     
-//                    print("#######\(postdiff.document.data())")
-                    
-//                    print(chatDataOp)
-                    
+//          
                     guard let chatData = chatDataOp else {
                         return
                     }
