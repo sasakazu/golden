@@ -12,6 +12,7 @@ class dogCustomCell: UICollectionViewCell {
     
     
     @IBOutlet weak var dogimageview: UIImageView!
+    @IBOutlet weak var dogname: UILabel!
     
     
     

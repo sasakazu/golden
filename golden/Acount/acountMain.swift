@@ -13,6 +13,7 @@ import FirebaseUI
 class acountMain: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var myPostArray = [Post]()
+    var myDogArray  = [Mydog]()
 
     
     var sendPostID:String = ""
@@ -32,8 +33,10 @@ class acountMain: UIViewController, UICollectionViewDataSource, UICollectionView
         imageview.layer.cornerRadius = 64
         
         self.profileTV.isEditable = false
-
+        // CollectionViewのレイアウトを生成.
+        let layout = UICollectionViewFlowLayout()
         
+   
 
         let db = Firestore.firestore()
     
@@ -111,7 +114,51 @@ class acountMain: UIViewController, UICollectionViewDataSource, UICollectionView
             }}
             
         
-
+// mydog database
+        
+        
+        let myDogRef = db.collection("users").document(userID!).collection("myDogs")
+        
+        
+        myDogRef.addSnapshotListener{ (doggydocument, error) in
+            
+            
+            guard let doggyvalue = doggydocument else {
+                print("snapShot is nil")
+                return
+            }
+            
+            
+            doggyvalue.documentChanges.forEach{doggydiff in
+                
+                if doggydiff.type == .added {
+                    
+                    
+                    
+                    let chatDataOp = doggydiff.document.data() as? Dictionary<String, String>
+                    
+                    
+                    
+                    //                    print(postdiff.document.data())
+                    
+                    guard let doggyData = chatDataOp else {
+                        return
+                    }
+                    
+                    let dogname = doggyData["mydogname"] ?? ""
+                    let dogicon = doggyData["myDogImage"] ?? ""
+              
+                    
+                    let newdog = Mydog(dogname: dogname, dogIcon: dogicon)
+                    
+                    self.myDogArray.append(newdog)
+                  
+                    self.dogCollectionview.reloadData()
+                    
+                    
+                }
+            }}
+        
 
 
 
@@ -124,13 +171,22 @@ class acountMain: UIViewController, UICollectionViewDataSource, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return myPostArray.count
+        
+        
+        if collectionView == self.collectionview {
+            return myPostArray.count
+        }
+        
+      
+        
+        return myDogArray.count
         
         
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+         if collectionView == self.collectionview {
         
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: "Cell",
@@ -143,10 +199,29 @@ class acountMain: UIViewController, UICollectionViewDataSource, UICollectionView
         cell.myPostImage.sd_setImage(with: postImageUrl as URL?)
 //        cell.myPostImage.layer.cornerRadius = 40
         
-        
-        
-        
         return cell
+         
+         }
+            
+        else {
+                
+        let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: "dogCell", for: indexPath) as! dogCustomCell
+            
+         let dogImageUrl = NSURL(string: (myDogArray[indexPath.row].dogIcon) as String)
+                
+            cell2.dogimageview.sd_setImage(with: dogImageUrl as URL?)
+            
+            cell2.dogimageview.layer.cornerRadius = 25
+            
+            cell2.dogname.text = myDogArray[indexPath.row].dogname
+                
+                
+        return cell2
+    
+            
+            }
+            
+            
     }
 
    
@@ -177,20 +252,9 @@ class acountMain: UIViewController, UICollectionViewDataSource, UICollectionView
     
     
  
+
+
     
-    
-    
-//
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//
-//
-//        sendPostID = myPostArray[indexPath.row].postId
-//
-//        performSegue(withIdentifier: "goPosts", sender: nil)
-//
-//
-//
-//    }
     
     
     
