@@ -16,6 +16,7 @@ class customCell: UICollectionViewCell {
     @IBOutlet weak var dogname: UILabel!
     @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var comment: UILabel!
+    @IBOutlet weak var likeLabel: UILabel!
     
     
     

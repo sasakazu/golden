@@ -12,14 +12,18 @@ import FirebaseUI
 
 class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
  
+    
 
    
     var sourseArray = [Post]()
     var userArray = [User]()
     
+    var getPostId:String = ""
+    var totalCount:Int = 0
 
     
     @IBOutlet weak var collectionview: UICollectionView!
+ 
     
     
     override func viewDidLoad() {
@@ -33,9 +37,10 @@ class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewData
         
         let ref = db.collection("users").document(user!.uid).collection("userInfo").document(user!.uid)
         
-        ref.getDocument(){ (document, error) in
+        ref.addSnapshotListener(){ (document, error) in
             if let document = document, document.exists {
                 
+     
         
         let myPostRef = db.collection("users").document(user!.uid).collection("posts")
         
@@ -56,7 +61,7 @@ class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewData
                     
                     
                     
-                    let chatDataOp = postdiff.document.data() as? Dictionary<String, String>
+                    let chatDataOp = postdiff.document.data() as? Dictionary<String, Any>
                     
 //          
                     guard let chatData = chatDataOp else {
@@ -69,15 +74,16 @@ class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewData
                     let profile = document["profile"] as? String
                     
                     
-                    let comment = chatData["comment"]
-                    let postURL = chatData["postImage"]
-                    let sendID = chatData["userID"]
-                    let postId = chatData["postId"]
+                    let comment = chatData["comment"] as? String
+                    let postURL = chatData["postImage"] as? String
+                    let sendID = chatData["userID"] as? String
+                    let postId = chatData["postId"] as? String
+                    let likecount = chatData["likecount"] as? Int
+                    print("----comment\(String(describing: likecount))")
                     
-                    print("----comment\(username)")
                     
+                    let newSourse = Post(postImage: postURL ?? "" , comment: comment ?? "", uuid: sendID ?? "", author: username ?? "", authorIcon: iconURL ?? "", postId: postId ?? "", likecount: likecount ?? 0)
                     
-                    let newSourse = Post(postImage: postURL ?? "", comment: comment ?? "", uuid: sendID ?? "", author: username ?? "", authorIcon: iconURL ?? "", postId: postId ?? "")
                     self.sourseArray.append(newSourse)
                     
                     
@@ -88,9 +94,7 @@ class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewData
 
 
             }}
-        
-        
-        
+ 
         }
    
         
@@ -135,16 +139,67 @@ class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewData
         
         cell.comment.text = sourseArray[indexPath.row].comment
         
+//        getPostId = sourseArray[indexPath.row].postId
+        
+        
         let postImageUrl = NSURL(string: (sourseArray[indexPath.row].postImage) as String)
         
         cell.postImage.sd_setImage(with: postImageUrl as URL?)
-       
+        
+//        cell.likeLabel.text = sourseArray
+        
+//        self.totalCount = sourseArray[indexPath.row].likecount
+        
+        cell.likeLabel.text = ("\(sourseArray[indexPath.row].likecount)")
+//
+//        print(totalCount)
+//
+
         return cell
     
     
     }
     
 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
+
+        self.getPostId = sourseArray[indexPath.row].postId
+        
+        
+//        self.totalCount =  sourseArray[indexPath.row].likecount
+
+        print(getPostId)
+
+//        print(totalCount)
+
+
+    }
+    
+
+    
+    
+    
+    @IBAction func likeButton(_ sender: UIButton) {
+        
+        let db = Firestore.firestore()
+        
+        let user = Auth.auth().currentUser
+    db.collection("users").document(user!.uid).collection("posts").document("\(self.getPostId)").updateData([
+            "likecount": FieldValue.increment(1.0)
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Document successfully updated")
+            }
+        }
+
+//print(getPostId)
+    
+    }
+    
+
+    
     }
     

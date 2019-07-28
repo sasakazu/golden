@@ -17,9 +17,10 @@ class Post {
     var author:String = ""
     var authorIcon:String = ""
     var postId:String = ""
+    var likecount:Int = 0
     
 
-    init(postImage: String, comment: String, uuid: String, author: String, authorIcon:String, postId:String) {
+    init(postImage: String, comment: String, uuid: String, author: String, authorIcon:String, postId:String, likecount: Int) {
 
         self.postImage = postImage
         self.comment = comment
@@ -27,7 +28,7 @@ class Post {
         self.author = author
         self.authorIcon = authorIcon
         self.postId = postId
-        
+        self.likecount = likecount
         
     }
 

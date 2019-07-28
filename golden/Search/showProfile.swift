@@ -82,7 +82,7 @@ class showProfile: UIViewController, UICollectionViewDataSource, UICollectionVie
                     
                     
                     
-                    let chatDataOp = postdiff.document.data() as? Dictionary<String, String>
+                    let chatDataOp = postdiff.document.data() as? Dictionary<String, Any>
                     
                     print(postdiff.document.data())
                     
@@ -90,13 +90,14 @@ class showProfile: UIViewController, UICollectionViewDataSource, UICollectionVie
                         return
                     }
                     
-                    let comment = chatData["comment"]
-                    let postURL = chatData["postImage"]
-                    let sendID = chatData["userID"]
-                    let postId = chatData["postId"]
+                    let comment = chatData["comment"] as? String
+                    let postURL = chatData["postImage"] as? String
+                    let sendID = chatData["userID"] as? String
+                    let postId = chatData["postId"] as? String
+                    let likecount = chatData["likecount"] as? Int
                     
                     
-                    let newSourse = Post(postImage: postURL!, comment: comment!, uuid: sendID!, author: comment!, authorIcon: comment!, postId: postId!)
+                    let newSourse = Post(postImage: postURL! , comment: comment!, uuid: sendID!, author: comment!, authorIcon: comment!, postId: postId!, likecount: likecount ?? 0)
                     self.showPost.append(newSourse)
                     
                     

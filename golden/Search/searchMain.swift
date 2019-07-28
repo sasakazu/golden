@@ -44,7 +44,7 @@ class searchMain: UIViewController, UICollectionViewDataSource, UICollectionView
                     
                     
                     
-                    let chatDataOp = diff.document.data() as? Dictionary<String, String>
+                    let chatDataOp = diff.document.data() as? Dictionary<String, Any>
                     
 //                    print(diff.document.data())
                     
@@ -52,15 +52,15 @@ class searchMain: UIViewController, UICollectionViewDataSource, UICollectionView
                         return
                     }
                     
-                    let comment = chatData["comment"]
-                    let postURL = chatData["postImage"]
-                    let sendID = chatData["userID"]
-                    let postId = chatData["postID"]
+                    let comment = chatData["comment"] as? String
+                    let postURL = chatData["postImage"] as? String
+                    let sendID = chatData["userID"] as? String
+                    let postId = chatData["postID"] as? String
+                    let likecount = chatData["likecount"] as? Int
                     
-                    print("^^^^^^^\(comment)")
+                
                     
-                    
-                    let newSourse = Post(postImage: postURL ?? "", comment: comment ?? "", uuid: sendID ?? "", author: comment ?? "", authorIcon: comment ?? "", postId: postId ?? "")
+                    let newSourse = Post(postImage: postURL ?? "", comment: comment ?? "", uuid: sendID ?? "", author: comment ?? "", authorIcon: comment ?? "", postId: postId ?? "", likecount: likecount ?? 0)
                     self.searchPost.append(newSourse)
                     
                     

@@ -86,7 +86,7 @@ class acountMain: UIViewController, UICollectionViewDataSource, UICollectionView
                     
                     
                     
-                    let chatDataOp = postdiff.document.data() as? Dictionary<String, String>
+                    let chatDataOp = postdiff.document.data() as? Dictionary<String, Any>
                     
                     
                     
@@ -100,9 +100,9 @@ class acountMain: UIViewController, UICollectionViewDataSource, UICollectionView
                     let postURL = chatData["postImage"] ?? ""
                     let sendID = chatData["userID"] ?? ""
                     let postId = chatData["postId"] ?? ""
+                    let likecount = chatData["likecount"]
                     
-                    
-                    let newSourse = Post(postImage: postURL, comment: comment, uuid: sendID, author: comment, authorIcon: comment, postId: postId)
+                    let newSourse = Post(postImage: postURL as! String, comment: comment as! String, uuid: sendID as! String, author: userID ?? "", authorIcon: comment as! String, postId: postId as! String, likecount: likecount as! Int)
                     self.myPostArray.append(newSourse)
                     
                     print("newsource\(newSourse)")

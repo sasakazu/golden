@@ -159,18 +159,7 @@ UINavigationControllerDelegate {
                 
                 
           let ref = db.collection("users").document(userID!).collection("userInfo").document(userID!)
-      
-                
-//        ref.addSnapshotListener{ (document, error) in
-//                    if let document = document, document.exists {
 
-//                        print(document.data())
-                        
-//        let userinfo = document.data()
-                        
-//        let userinfo = document.data()
-
-//                        print(document)
       
         let data: [String: Any] = [
             "comment": self.hitokoto.text ?? "",
