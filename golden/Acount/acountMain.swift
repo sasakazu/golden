@@ -96,13 +96,13 @@ class acountMain: UIViewController, UICollectionViewDataSource, UICollectionView
                         return
                     }
                     
-                    let comment = chatData["comment"] ?? ""
-                    let postURL = chatData["postImage"] ?? ""
-                    let sendID = chatData["userID"] ?? ""
-                    let postId = chatData["postId"] ?? ""
-                    let likecount = chatData["likecount"]
+                    let comment = chatData["comment"] as? String
+                    let postURL = chatData["postImage"] as? String
+                    let sendID = chatData["userID"] as? String
+                    let postId = chatData["postId"] as? String
+                    let likecount = chatData["likecount"] as? Int
                     
-                    let newSourse = Post(postImage: postURL as! String, comment: comment as! String, uuid: sendID as! String, author: userID ?? "", authorIcon: comment as! String, postId: postId as! String, likecount: likecount as! Int)
+                    let newSourse = Post(postImage: postURL ?? "", comment: comment ?? "", uuid: sendID ?? "", author: userID ?? "", authorIcon: comment ?? "", postId: postId ?? "", likecount: likecount ?? 0)
                     self.myPostArray.append(newSourse)
                     
                     print("newsource\(newSourse)")

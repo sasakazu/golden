@@ -139,21 +139,15 @@ class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewData
         
         cell.comment.text = sourseArray[indexPath.row].comment
         
-//        getPostId = sourseArray[indexPath.row].postId
-        
         
         let postImageUrl = NSURL(string: (sourseArray[indexPath.row].postImage) as String)
         
         cell.postImage.sd_setImage(with: postImageUrl as URL?)
         
-//        cell.likeLabel.text = sourseArray
-        
-//        self.totalCount = sourseArray[indexPath.row].likecount
+
         
         cell.likeLabel.text = ("\(sourseArray[indexPath.row].likecount)")
-//
-//        print(totalCount)
-//
+
 
         return cell
     
@@ -166,12 +160,10 @@ class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewData
 
         self.getPostId = sourseArray[indexPath.row].postId
         
-        
-//        self.totalCount =  sourseArray[indexPath.row].likecount
 
         print(getPostId)
 
-//        print(totalCount)
+
 
 
     }
