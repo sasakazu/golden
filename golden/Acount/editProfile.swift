@@ -44,7 +44,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         
         
         
-        ref.getDocument{ (document, error) in
+        ref.addSnapshotListener(includeMetadataChanges: true){ (document, error) in
             if let document = document {
                 
                 let username = document["userName"] as? String

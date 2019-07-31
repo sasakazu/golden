@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="53d-72-3lb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qb5-Hi-XfU">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -214,6 +214,7 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="likeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gSA-kK-qR0"/>
+                                                        <action selector="tapped:" destination="LWK-2s-ypd" eventType="touchUpInside" id="vNn-c5-xox"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xb2-ln-DrL">
@@ -240,6 +241,7 @@
                                         <connections>
                                             <outlet property="comment" destination="i3B-Gj-I0H" id="U3k-78-ALO"/>
                                             <outlet property="dogname" destination="kNg-26-63t" id="Qfd-dG-mBe"/>
+                                            <outlet property="heartButton" destination="e8e-9T-h9L" id="vIL-EV-kP9"/>
                                             <outlet property="likeLabel" destination="Xb2-ln-DrL" id="F6k-ma-mIo"/>
                                             <outlet property="postImage" destination="wMQ-tX-n8b" id="23M-kG-uBa"/>
                                             <outlet property="userIcon" destination="DrP-Bv-f6w" id="yKk-LQ-2UE"/>

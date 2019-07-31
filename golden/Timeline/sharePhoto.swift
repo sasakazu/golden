@@ -117,12 +117,6 @@ UINavigationControllerDelegate {
         let db = Firestore.firestore()
         
       
-        
-      
-        
-        
-     
-                
               
         
         var imageData = Data()
@@ -159,6 +153,12 @@ UINavigationControllerDelegate {
                 
                 
           let ref = db.collection("users").document(userID!).collection("userInfo").document(userID!)
+                
+//          ref.addSnapshotListener(includeMetadataChanges: true){ (document, error) in
+//                let document = document
+                
+             
+//            let userinfo = document!.data()
 
       
         let data: [String: Any] = [
@@ -171,6 +171,8 @@ UINavigationControllerDelegate {
 
             ] as [String : Any]
             
+                    
+        
          
         let db = Firestore.firestore()
         
@@ -197,20 +199,18 @@ UINavigationControllerDelegate {
                     }
                 }
                 
-        self.navigationController?.popToRootViewController(animated: true)
+             self.navigationController?.popToRootViewController(animated: true)
 
-            }
-    
+//            }
+                }
                 }}
-//        }
-    
-//}
+
     
     
 
-    
+    }
     
     
     
 
-}
+
