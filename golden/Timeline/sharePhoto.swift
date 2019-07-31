@@ -154,19 +154,13 @@ UINavigationControllerDelegate {
                 
           let ref = db.collection("users").document(userID!).collection("userInfo").document(userID!)
                 
-//          ref.addSnapshotListener(includeMetadataChanges: true){ (document, error) in
-//                let document = document
-                
-             
-//            let userinfo = document!.data()
-
       
         let data: [String: Any] = [
             "comment": self.hitokoto.text ?? "",
             "userID": userID as Any,
             "postImage": postdata,
-            "postId": postid
-//            "userinfo": userinfo as Any
+            "postId": postid,
+            "postdate": Timestamp(date: Date())
 
 
             ] as [String : Any]
