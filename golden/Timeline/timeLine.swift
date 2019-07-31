@@ -43,7 +43,7 @@ class timeLine: UIViewController, UICollectionViewDelegate, UICollectionViewData
         ref.getDocument(){ (document, error) in
             if let document = document, document.exists {
 
-                let myPostRef = db.collection("users").document(user!.uid).collection("posts").order(by: "postdate")
+                let myPostRef = db.collection("users").document(user!.uid).collection("posts").order(by: "postdate", descending: true)
 
         myPostRef.addSnapshotListener(includeMetadataChanges: true){ (postdocument, error) in
 
